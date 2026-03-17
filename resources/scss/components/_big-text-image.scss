@@ -1,0 +1,21 @@
+.image-text {
+    &__big {
+        @apply px-12 py-16 flex items-center gap-6;
+
+        &__image {
+            @apply max-w-[50%] min-w-[50%] aspect-[525/410] relative bg-kblbb-bg;
+
+            img {
+                @apply absolute top-0 left-0 w-full h-full object-cover;
+            }
+        }
+
+        &__heading {
+            @apply text-kblbb-text font-bold leading-normal mb-6 tracking-wide;
+        }
+
+        p {
+            @apply text-base leading-[28px] mb-6;
+        }
+    }
+}

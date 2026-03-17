@@ -1,0 +1,21 @@
+.header {
+    @apply bg-kblbb-bg fixed w-full left-0 z-50;
+    @apply shadow-[-1px_0px_16.6px_0px_rgba(0,0,0,0.25)];
+
+    &__container {
+        @apply flex flex-wrap items-center justify-between mx-auto px-6 py-4;
+    }
+
+    &__brand-logo {
+        @apply text-[22px] not-italic font-bold leading-[normal] tracking-[1px] text-[#111];
+        font-feature-settings: 'clig' off, 'liga' off;
+    }
+
+    &__lang-switcher {
+        @apply flex bg-white rounded px-3 py-[6px] items-center gap-1;
+
+        span {
+            @apply text-sm not-italic font-bold leading-[14px];
+        }
+    }
+}

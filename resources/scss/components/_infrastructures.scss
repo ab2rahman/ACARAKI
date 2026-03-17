@@ -1,0 +1,291 @@
+.infrastructures {
+    @apply px-12 py-16;
+    &__container {
+        @apply bg-kblbb-bg px-20 py-16;
+
+        &__header {
+            @apply flex justify-between items-start mb-12;
+
+            > div {
+                @apply max-w-[700px];
+            }
+
+            p {
+                @apply text-sm;
+            }
+
+        }
+    }
+
+
+    &__heading {
+        @apply text-2xl font-bold mb-2 text-center;
+    }
+
+    &__list {
+        @apply grid grid-cols-3 gap-x-8 gap-y-16;
+
+        a {
+            @apply flex flex-col gap-4 justify-center items-center bg-white py-6 px-4;
+
+            img {
+                @apply w-[60px] h-auto;
+            }
+
+            h3 {
+                @apply font-bold text-lg leading-6;
+            }
+
+            p {
+                @apply text-center;
+            }
+
+            &:hover {
+                h3 {
+                    @apply text-kblbb-green;
+                }
+            }
+        }
+    }
+}
+
+.infrastructure {
+    &__area {
+        @apply bg-white py-[32px] md:pt-6 md:pb-24;
+
+        #power-grid-table-base {
+            @apply p-0 md:px-[10px] lg:px-[2rem] #{!important};
+        }
+
+        .heading {
+            @apply flex justify-between gap-[16px] lg:gap-[0] lg:flex-row flex-col lg:items-center mb-[33px];
+
+            > div {
+                @apply lg:first:w-fit first:flex first:justify-start first:items-center first:gap-1;
+            }
+
+            h3 {
+                @apply text-[#03242F] uppercase;
+            }
+        }
+
+        .latest-update {
+            @apply text-sm font-light text-[#666C73] mt-5 mb-6;
+        }
+
+        #power-grid-table-base {
+            > div {
+                &:nth-child(1) {
+                    input {
+                        @apply border border-[#E9EFFB] rounded-full ring-0 pr-[100px] pl-[10px];
+                    }
+
+                    div > span {
+                        @apply first:bg-[#E9EFFB] left-[unset] first:right-0 last:right-10 rounded-r-full first:border first:border-[#E9EFFB] border-l-0;
+
+                        svg {
+                            @apply stroke-kblbb-blue;
+                        }
+                    }
+
+                }
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    @apply border-none rounded-none;
+
+                    #table_base_default {
+                        @apply mt-3;
+                    }
+                }
+
+
+
+                select {
+                    @apply border border-[#E9EFFB] rounded-full ring-0 pl-[10px];
+                }
+            }
+
+            thead {
+                th {
+                    &:nth-child(5),
+                    &:nth-child(6),
+                    &:nth-child(7) {
+                        > div {
+                            @apply justify-center;
+                        }
+                    }
+                }
+            }
+        }
+
+        #toggle-filters {
+            button {
+                @apply border border-kblbb-blue rounded-full p-2 hover:bg-kblbb-blue;
+
+                svg {
+                    @apply size-5;
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            @apply stroke-white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .pg-actions {
+            @apply justify-center;
+        }
+        #pg-footer {
+            @apply border-none p-0 py-4 mt-6;
+
+            div {
+                @apply text-xs font-light;
+            }
+
+            nav {
+                div {
+                    @apply gap-[10px];
+
+                    a {
+                        @apply flex justify-center items-center w-[24px] h-[24px];
+                        @apply  text-sm not-italic font-semibold leading-[1px] font-albert;
+                        @apply rounded-full text-[#2A50B0] bg-white px-0 py-[2px] border-white;
+
+                        @apply hover:bg-[#2A50B0] hover:text-white;
+                    }
+
+                    span {
+                        @apply flex justify-center items-center w-[24px] h-[24px];
+                        @apply  text-sm not-italic font-semibold leading-[1px] font-albert;
+                        @apply rounded-full bg-[#2A50B0] text-white px-0 py-[2px];
+                    }
+                }
+            }
+        }
+
+        .table {
+            @apply border-0;
+            thead {
+                @apply bg-[#F4F6FA] shadow-none border-b border-[#DAE0EA];
+            }
+            th {
+                @apply capitalize font-albert font-semibold text-sm tracking-normal;
+
+                &:last-child {
+                    > div {
+                        @apply justify-center;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    @apply hover:bg-[#E9EFFB];
+                }
+                td {
+                    @apply capitalize font-albert font-normal text-sm tracking-normal text-[#021825] px-2 py-4 max-w-[300px] whitespace-normal align-top;
+
+                    &:nth-child(1) {
+                        @apply w-[40px];
+                    }
+
+                    &:nth-child(2) {
+                        @apply w-[50px];
+                    }
+                }
+            }
+
+            &-detail__spklu {
+                @apply -my-4 -mx-2 bg-[#F8FAFD] pointer-events-none w-[calc(100%_+_16px)];
+
+                thead {
+                    @apply bg-transparent pointer-events-none;
+                    td {
+                        @apply font-semibold py-2;
+                    }
+                }
+
+                tbody {
+                    @apply bg-transparent pointer-events-none;
+                    td {
+                        @apply font-light py-2 ;
+                    }
+                }
+            }
+        }
+        .sosmed-container {
+            @apply flex flex-row gap-1;
+            &__item {
+                a {
+                    @apply rounded-full border block border-[#2A50B0] p-1.5;
+
+                    &:hover {
+                        @apply bg-kblbb-blue;
+
+                        &:first-child {
+
+                            svg {
+                                path {
+                                    &:first-child {
+                                        @apply fill-white;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:last-child {
+
+                            svg {
+                                path {
+                                    @apply stroke-white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.page-switcher {
+    @apply flex rounded-full bg-[#E9EFFB] p-1 relative before:absolute;
+    @apply w-[128px] #{!important};
+
+    &:before {
+        @apply bg-kblbb-blue rounded-full w-[63px] h-[30px] top-1 transition-all;
+        box-shadow: 0px 2px 2px 0px rgba(12, 27, 57, 0.25);
+    }
+
+    > a {
+        @apply w-1/2 block text-center text-sm/[18px] text-kblbb-blue font-semibold relative py-1.5;
+
+    }
+
+    &.data {
+        a {
+            @apply first:text-white;
+        }
+
+
+        &::before {
+            @apply left-1;
+        }
+    }
+
+    &.map {
+        a {
+            @apply last:text-white;
+        }
+
+        &::before {
+            @apply left-[calc(50%_-_4px)];
+        }
+    }
+}

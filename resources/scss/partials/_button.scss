@@ -1,0 +1,19 @@
+.button {
+    @apply py-[11px] px-[16px] rounded-full text-[16px] font-semibold leading-[18px] inline-block text-center w-full md:w-fit;
+    &__default {
+        @apply text-white hover:bg-kblbb-blue-darker bg-kblbb-blue;
+    }
+    &__white {
+        @apply bg-white hover:text-kblbb-bg hover:bg-kblbb-blue text-kblbb-blue;
+    }
+    &__light-blue {
+        @apply bg-[#E9EFFB] hover:text-kblbb-bg hover:bg-kblbb-blue text-kblbb-blue;
+    }
+    &__disabled {
+        @apply text-[#A2A5AA]  bg-[#DAE0EA] pointer-events-none;
+    }
+
+    &__infra {
+        @apply text-kblbb-blue bg-transparent hover:bg-kblbb-blue hover:text-white text-sm/[18px] border border-kblbb-blue py-[6px];
+    }
+}

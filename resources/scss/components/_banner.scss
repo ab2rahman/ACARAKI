@@ -1,0 +1,154 @@
+.banner {
+    @apply relative w-full flex flex-col justify-center px-[24px] md:px-[48px] h-[382px] before:h-full before:left-0 before:top-0 before:absolute before:w-full before:z-[2] overflow-hidden before:bg-black/[20%];
+
+    .content__container {
+        @apply w-full;
+    }
+
+    &__content {
+        @apply relative z-[3] max-w-[900px] mx-auto flex items-center flex-col gap-[18px];
+
+        h1 {
+            @apply text-white text-center mb-0;
+            text-shadow: 0px 1px 5.3px rgba(0, 0, 0, 0.50);
+        }
+
+        h4 {
+            @apply max-w-[840px];
+            @apply heading-4 text-white text-center #{!important};
+            text-shadow: 0px 1px 5.3px rgba(0, 0, 0, 0.50);
+            p {
+                @apply heading-4 text-white text-center #{!important};
+                text-shadow: 0px 1px 5.3px rgba(0, 0, 0, 0.50);
+            }
+
+        }
+
+    }
+
+    &__home {
+        @apply h-[100vh];
+
+        .scroll-down {
+            @apply absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col gap-1 items-center;
+
+            span {
+                @apply text-xs/[18px] text-white;
+            }
+
+            svg {
+                @apply animate-bounce;
+            }
+        }
+    }
+
+    &__content {
+        @apply relative z-[3];
+
+        h1 {
+
+        }
+    }
+
+    &__video {
+        @apply absolute w-auto min-w-full min-h-full max-w-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block;
+
+        &-mobile {
+            @apply md:hidden absolute w-auto min-w-full min-h-full max-w-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+        }
+    }
+    &__bg {
+        @apply pointer-events-none absolute top-0 left-0 w-full h-full object-cover z-[1];
+
+    }
+    &__single {
+        @apply flex justify-center items-center px-[173px] py-[74px] text-center rounded-lg;
+        .btn-white {
+            @apply flex justify-center items-center gap-1 rounded shadow-[0px_2px_4.1px_0px_rgba(0,0,0,0.20)] px-3 py-2 bg-white max-w-[100px] mx-auto;
+            @apply text-[#111] text-xs not-italic font-bold leading-4 font-albert;
+        }
+    }
+    &__footer {
+        @apply shadow-[0px_4px_15px_0px_rgba(6,12,41,0.15)] rounded-2xl before:absolute before:w-full before:h-full before:top-0 before:left-0 h-auto py-16;
+        background: linear-gradient(159deg, #4ABCC6 0%, #5A71BF 60.7%, #585CB2 120.82%);
+
+        &::before {
+            background: linear-gradient(162deg, rgba(57, 114, 52, 0.50)7.27%, rgba(41, 57, 88, 0.50)53.52%, rgba(9, 13, 45, 0.50)93.72%);
+        }
+        
+        img {
+            @apply hidden;
+        }
+
+        .banner__bg {
+            @apply shadow-[0px_4px_15px_0px_rgba(6,12,41,0.15)] rounded-2xl;
+
+
+        }
+        .banner__content {
+            @apply w-full lg:max-w-[710px] gap-8;
+            h2 {
+                @apply text-white text-center;
+                @media screen and (max-width:500px) {
+                    @apply text-xl;
+                }
+                
+            }
+        }
+        .btn-white {
+            @apply flex justify-center items-center gap-1 rounded-[100px] px-[16px] py-[11px] bg-[#E9EFFB] mx-auto;
+            @apply text-[#2A50B0] hover:bg-[#2A50B0] hover:text-white text-[14px] lg:text-base not-italic font-semibold leading-[18px] font-albert;
+        }
+    }
+    &__detail {
+        @apply pt-[40px] lg:pt-0;
+        .content__container {
+            @media screen and (max-width: 1000px) {
+                padding: 0px;
+            }
+        }
+        .banner__content {
+            @apply ml-0 items-start max-w-full;
+            h1 {
+                @apply text-left;
+                @media screen and (max-width: 1000px) {
+                    @apply text-[28px] leading-[36px];
+                }
+            }
+            h4 {
+                @apply text-left #{!important};
+            }
+            p {
+                text-shadow: 0px 1px 5.3px rgba(0, 0, 0, 0.50);
+                @apply text-white text-sm;
+            }
+            &_backto {
+                @apply flex flex-col gap-y-[16px] mb-[32px];
+                &-tags {
+                    @apply flex flex-row items-center gap-[4px];
+                    .item {
+                        &.cirle {
+                            @apply bg-white;
+                        }
+                        &.long-circles {
+                            @apply px-[16px] py-[7px] rounded-[20px];
+                        }
+                        @apply bg-white border-0 rounded-[50%];
+                        @apply text-[#021825] text-base not-italic font-semibold leading-[18px] font-albert;
+                    }
+                }
+            }
+        }
+        .banner__side {
+            @apply flex flex-col lg:flex-row gap-[8px] lg:gap-[16px];
+            .group {
+                svg {
+                    @apply size-[32px] lg:size-[48px];
+                }
+            }
+            .content-desc {
+                @apply flex flex-col gap-[8px] lg:gap-[24px];
+            }
+        }
+    }
+}

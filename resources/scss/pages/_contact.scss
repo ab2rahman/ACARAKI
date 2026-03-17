@@ -1,0 +1,110 @@
+
+
+.feedback {
+    @apply pt-[32px] md:pt-[48px] pb-[130px] md:pb-[150px];
+    .content__container {
+        @apply relative before:absolute;
+
+        &:before {
+            @apply bg-[url('/public/imgs/pattern-home.svg')] w-[185px] h-[810px] bottom-[146px] left-[calc(100%_-_94px)];
+        }
+
+        .form-feedback {
+            @apply  flex flex-col md:flex-row gap-[32px] md:gap-[50px] relative;
+        
+            .toast-success {
+                @apply shadow-[0px_2px_7px_0px_rgba(124,160,123,0.44)] rounded-lg bg-[#1DB651] w-fit px-6 py-3 absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2;
+
+                div {
+                    @apply text-[color:var(--White,#FFF)] text-center text-base not-italic font-medium leading-6 whitespace-nowrap;
+                }
+            }
+            &__description {
+                @apply w-full md:w-[40%];
+                p {
+                    @apply text-[#16824E] text-xl not-italic font-semibold leading-[30px] font-albert;
+                }
+            }
+            &__content-wrapper{
+                @apply w-full md:w-[60%] relative;
+                form {
+                    @apply max-w-[581px] flex flex-col gap-[16px];
+        
+                    .form-group {
+                        .select__selected-dropdown,
+                        input, select {
+                            @apply py-[12px] px-[16px];
+                            @apply text-[#021825] text-base not-italic font-medium placeholder:font-light leading-6 font-albert bg-white placeholder:text-[#666C73];
+                            @apply border rounded-[100px] border-solid border-[#D4E1F1] w-full ring-0;
+                        }
+
+                        .select__selected-dropdown {
+                            @apply flex justify-between;
+
+                            span {
+                                @apply font-light text-[#666C73] text-left;
+                            }
+
+                            &.isSelect {
+                                span {
+                                    @apply text-[#021825] font-medium;
+                                }
+                            }
+                        }
+
+                        .dropdown {
+                            @apply bg-white rounded-lg shadow w-full;
+                            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.17);
+                            &-menu {
+                                @apply py-2 text-sm text-gray-700;
+                                li {
+                                    a {
+                                        @apply text-black text-base not-italic font-medium leading-6;
+                                        @apply block p-2 hover:bg-[#E9EFFB] hover:text-[#2A50B0];
+                    
+                                    }
+                                }
+                            }
+                        }
+
+                        textarea{
+                            @apply py-[12px] px-[16px] h-[266px];
+                            @apply border rounded-2xl border-solid border-[#D4E1F1] w-full ring-0;
+                            @apply text-[#021825] text-base not-italic font-medium placeholder:font-light leading-6 font-albert placeholder:text-[#666C73];
+                        }
+
+                        select {
+                            @apply text-[#666C73] hover:text-[#2A50B0] font-light;
+
+                            &.isSelect {
+                                @apply text-[#021825] font-medium;
+                            }
+                        }
+
+                        input, textarea, select {
+                            &:hover {
+                                @apply placeholder:text-[#666C73] border-[#2A50B0];
+                            }
+                            &:focus {
+                                @apply placeholder:text-[#666C73] border-[#2A50B0];
+                            }
+                            &.is-invalid {
+                                @apply border-[#C83212];
+                            }
+                        }
+
+                        .alert-danger {
+                            @apply text-xs not-italic font-medium leading-3 ml-[18px] mt-1;
+                            @apply text-[#C83212];
+                        }
+
+
+                    }
+                }
+                .counting {
+                    @apply text-[#666C73] text-xs not-italic font-medium leading-3 font-albert mb-0;
+                }
+            }
+        }
+    }
+}

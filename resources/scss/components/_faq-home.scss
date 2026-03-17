@@ -1,0 +1,74 @@
+.faq-home {
+    @apply py-[32px] 1xl:pb-[145px] relative lg:px-[48px] 3xl:px-0;
+
+    &__container {
+        @apply flex flex-col gap-[24px] 1xl:mx-0 1xl:px-[5rem] lg:flex-row lg:gap-[50px] relative;
+
+        // &::before {
+        //     content: "";
+        //     @apply absolute top-[345px] -left-[10%] w-[200px] h-[280px] bg-contain bg-[url('/public/imgs/bg-pattern-faq.svg')];
+        //     background-repeat: no-repeat;
+        // }
+    }
+    &__header {
+        @apply lg:w-[45%];
+        h3 {
+            @apply text-[#666C73] text-sm not-italic font-bold leading-6 tracking-[1px] uppercase font-albert mb-[4px];
+        }
+        p {
+            @apply text-[#16824E] text-2xl not-italic font-semibold leading-8 font-albert;
+            @media screen and (max-width: 820px) {
+                margin-bottom: 0px;
+            }
+        }
+        a {
+            @apply mt-[16px] lg:mt-[105px] inline-block w-fit;
+        }
+    }
+    &__content {
+        @apply w-full;
+        &-item {
+            @apply py-[24px];
+            @apply border-b border-b-[#DAE0EA] border-solid;
+            .heading {
+                @apply mb-[4px];
+                &-button {
+                    @apply flex flex-row items-start justify-between w-full gap-3;
+                    span {
+                        @apply text-[#002941] text-lg not-italic font-semibold leading-[26px] text-left;
+                    }
+
+                    svg {
+                        @apply flex-none;
+                    }
+                    &:hover {
+                        span {
+                            @apply text-kblbb-blue;
+                        }
+                    }
+    
+                    &[aria-expanded=true] {
+                        &:hover {
+                            span {
+                                @apply text-[#1B3883];
+                            }
+                        }
+                    }
+                }
+
+
+            }
+            .accordion-body {
+                &__content {
+                    @apply max-w-[85%];
+
+                    p {
+                        @apply text-[#002941] last:mb-0;
+                    }
+                }
+            }
+            
+        }
+    }
+     
+}
