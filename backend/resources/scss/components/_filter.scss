@@ -1,0 +1,88 @@
+
+
+.filter-catalog {
+    @apply flex gap-5;
+
+    .search-box {
+        @apply max-w-[300px] #{!important};
+    }
+    &__select {
+        @apply bg-transparent border-0 border-b border-[#D8DDE1] text-kblbb-text text-sm p-2.5;
+    }
+}
+
+.filter {
+    @apply flex flex-col-reverse md2:flex-row md2:justify-between md2:items-center gap-[8px] md2:gap-0;
+    &__search-box {
+        @apply flex flex-row gap-x-[12px] items-center max-w-full md2:max-w-[215px] lg:max-w-[280px] 1xl:max-w-[420px] w-full bg-white border rounded-[100px] border-solid border-[#D4E1F1] relative;
+
+        &:focus-within {
+            @apply border-kblbb-blue;
+        }
+        &--group {
+            @apply w-[42px] h-[52px] lg:h-[42px] rounded-r-[100px] bg-[#E9EFFB] hover:bg-kblbb-blue flex justify-center items-center;
+            &-svg {
+                @apply max-w-[20px] min-w-[20px];
+            }
+        }
+        &--input {
+            @apply not-italic leading-7 font-albert border-0 p-0 bg-transparent w-full pl-4 pr-0 py-2;
+            @apply text-[#021825] text-base placeholder:font-light font-medium leading-6;
+            @media screen and (max-width: 500px) {
+                @apply text-[16px];
+            }
+            &:focus {
+                @apply outline-none ring-offset-transparent ring-transparent;
+            }
+        }
+        .close-box {
+            @apply absolute right-[45px] top-1/2 -translate-y-1/2 hover:bg-kblbb-blue cursor-pointer p-[2px] rounded-full;
+
+            &:hover {
+                svg {
+                    path {
+                        @apply fill-white;
+                    }
+                }
+            }
+        }
+    }
+    &__selected {
+        @apply flex flex-col md2:flex-row gap-[10px] md2:w-[330px] lg:w-fit;
+        &-dropdown {
+            @apply text-base not-italic font-semibold leading-[18px] font-albert flex flex-row justify-between items-center bg-white w-fit;
+            @apply h-10 gap-4 border pl-4 pr-3 py-2 rounded-[100px] border-solid border-[#D4E1F1];
+            @apply w-full lg:w-fit z-[9];
+
+            @media screen and (max-width: 500px) {
+                @apply text-[16px];
+            }
+
+            &:focus {
+                @apply border-kblbb-blue;
+
+                span {
+                    @apply text-kblbb-blue;
+                } 
+
+                svg {
+                    @apply rotate-180;
+                }
+            }
+        }
+    }
+    .dropdown {
+        @apply bg-white rounded-lg shadow w-44;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.17);
+        &-menu {
+            @apply py-2 text-sm text-gray-700;
+            li {
+                a {
+                    @apply text-black text-base not-italic font-medium leading-6;
+                    @apply block p-2 hover:bg-[#E9EFFB] hover:text-[#2A50B0];
+
+                }
+            }
+        }
+    }
+}

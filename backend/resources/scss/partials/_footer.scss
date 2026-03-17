@@ -1,0 +1,8 @@
+.footer {
+    @apply bg-[#E9EFFB] py-[13px] px-8 flex justify-between items-center relative hidden w-full bottom-0;
+    @apply font-albert text-black text-xs capitalize;
+
+    &__links a{
+        @apply font-albert text-[#000] hover:text-white text-xs;
+    }
+}

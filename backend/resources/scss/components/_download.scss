@@ -1,0 +1,37 @@
+.download {
+    @apply flex justify-between w-full bg-white border border-[#C5D1EF] rounded-2xl p-4 transition-all;
+
+    .text{
+        @apply line-clamp-1 max-w-[500px] text-base text-[#021825] font-medium transition-all;
+    }
+
+    .svgs {
+        @apply size-6 relative;
+
+        > svg {
+            @apply absolute top-0 left-0 transition-all;
+
+            &.hover {
+                @apply opacity-0;
+            }
+        }
+    }
+
+    &:hover {
+        @apply bg-[#E9EFFB];
+
+        .text{
+            @apply text-kblbb-blue;
+        }
+
+        .svgs {
+            svg {
+                @apply opacity-0;
+
+                &.hover {
+                    @apply opacity-100;
+                }
+            }
+        }
+    }
+}

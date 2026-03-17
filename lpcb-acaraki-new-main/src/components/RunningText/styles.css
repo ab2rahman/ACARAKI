@@ -1,0 +1,14 @@
+.running-text-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.running-text-container .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.running-text-slide {
+  width: auto !important;
+  white-space: nowrap;
+  display: inline-block;
+} 

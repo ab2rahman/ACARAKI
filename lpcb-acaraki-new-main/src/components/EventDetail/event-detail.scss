@@ -1,0 +1,91 @@
+.event-detail {
+    .banner {
+        @apply w-full max-h-[992px] lg:aspect-[1440/992] relative overflow-hidden bg-cover bg-center;
+        @apply before:absolute before:top-0 before:left-0 before:w-full before:h-[90%] before:z-[0];
+        @apply after:absolute lg:after:bottom-[-158px] after:bottom-[-40px] after:left-0 after:w-full lg:after:h-[400px] after:h-[114px] after:z-[1] overflow-hidden;
+    
+        &::before {
+            background: linear-gradient(330deg, rgba(11, 29, 38, 0.00) 31.06%, #0B1D26 108.93%);
+        }
+    
+        &::after {
+            background: linear-gradient(180deg, rgba(11, 29, 38, 0.00) 0%, rgba(252, 163, 17, 0.60) 84.92%);
+        }
+
+        .container {
+            @apply relative z-[1] h-fit lg:h-full flex flex-col justify-center items-center lg:py-[100px] pt-[140px] pb-[100px] text-center gap-y-[24px];
+
+            .price {
+                @apply flex flex-col gap-y-[7px] rounded-[9px] bg-[rgba(255,255,255,0.80)] backdrop-blur-[50px] px-[45px] py-[11px];
+                
+                span {
+                    @apply lg:text-[24px] text-[16px] font-normal text-black last:lg:text-[36px] last:text-[24px] last:font-bold;
+                }
+            }
+        }
+    }
+
+    .judges {
+        @apply py-[30px] sm:py-[89px];
+        
+        .judge-item {
+            @apply flex flex-col gap-y-[30px] md:flex-row gap-x-[50px] items-start;
+
+            .judge-image {
+                @apply lg:w-[412px] md:w-[300px] w-[90%] flex-shrink-0;
+            }
+
+            .judge-content {
+                @apply flex flex-col gap-y-[25px] justify-center;
+                hr {
+                    @apply border-t border-[#D9D9D9];
+                }
+                
+                .judge-content-header {
+                    @apply flex flex-col gap-y-[8px] justify-center;
+                    
+                    .judge-label {
+                        @apply text-[10px] font-medium text-[#323377] px-[10px] py-[2px] rounded-[10px] border border-[#323377] bg-[#D6F2FF] w-fit;
+                    }
+                    .judge-name {
+                        @apply text-[24px] font-bold text-black;
+                    }
+                }
+
+                .judge-content-body {
+                    p {
+                        @apply lg:text-[20px]/[30px] text-[16px]/[26px] font-normal text-black mb-[16px] last:mb-0;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .mechanism {
+        @apply py-[66px] px-[20px] lg:px-[106px];
+
+        h2 {
+            @apply text-[#3C0000] text-center mb-10;
+        }
+
+        .content-wysiwyg {
+            @apply sm:text-[20px] text-[16px] font-normal text-black;
+
+            h3 {
+                @apply sm:text-[24px] text-[18px] font-bold text-black sm:mb-4 mb-2;
+            }
+
+            ul {
+                @apply list-disc list-outside pl-6 sm:mb-8 mb-4 last:mb-0;
+                li {
+                    @apply sm:mb-2 mb-1 last:mb-0;
+                }
+            }
+
+            p {
+                @apply sm:mb-8 mb-4 last:mb-0;
+            }
+        }
+    }
+}

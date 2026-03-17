@@ -1,0 +1,114 @@
+.faq-container {
+    @apply pt-[32px] lg:pt-[48px] pb-[148px];
+    .description {
+        @apply max-w-[70%];
+        p {
+            @apply text-black text-base not-italic font-normal leading-7 font-albert;
+        }
+    }
+    .divide-content {
+        @apply flex flex-col lg:flex-row gap-[50px] items-start;
+        .left {
+            @apply flex-grow flex-col gap-[8px] flex;
+            .isMobilescreen {
+                @apply mb-[14px] lg:hidden;
+
+                @media screen and (max-width: 825px) {
+                    .filter__selected {
+                        @apply w-full;
+                        .dropdown {
+                            @apply -left-[10] w-[320px] #{!important};
+                        }
+                    }
+                }
+            }
+            .accordion-wrapper {
+                &_heading {
+                    @apply flex items-center justify-between py-[16px] bg-transparent cursor-pointer border-b border-b-[#DAE0EA] border-solid;
+                }
+                .accordion-perent {
+                    .accordion-item {
+                        @apply py-[24px] border-b border-[#DAE0EA];
+                    }
+                    &__heading {
+                        @apply flex flex-row justify-between w-full bg-transparent;
+                        span {
+                            @apply text-[#021825] text-[16px] leading-[22px] lg:text-[18px] not-italic font-semibold lg:leading-[26px] font-albert text-left;
+                        }
+
+                        svg {
+                            @apply flex-none;
+                        }
+                        p {
+                            @apply mb-0;
+                            @media screen and ( max-width: 825px ) {
+                                @apply text-[16px] leading-[24px]
+                            }
+                        }
+
+                        &:hover {
+                            span {
+                                @apply text-kblbb-blue;
+                            }
+
+                            svg {
+                                circle {
+                                    @apply fill-white #{!important};
+                                }
+
+                                path {
+                                    @apply fill-kblbb-blue #{!important};
+                                }
+
+                            }
+                        }
+
+                        &[aria-expanded=true] {
+                            &:hover {
+                                span {
+                                    @apply text-[#1B3883];
+                                }
+                            }
+                        }
+                    }
+                    &__body {
+                        @apply pt-[8px];
+                        &-content {
+                            @apply pr-[30px];
+                            p {
+                                @apply text-black not-italic font-albert mb-0;
+                            }
+                        }
+                    }
+                    h3 {
+                        @apply w-full;
+                    }
+                }
+            }
+        }
+        .right {
+            @apply hidden lg:block w-full lg:w-[280px] flex-none sticky top-12;
+            .list-category {
+                @apply max-w-full lg:max-w-[281px] w-full px-0 py-4 bg-white;
+                @apply shadow-[0px_4px_15px_0px_rgba(6,12,41,0.15)] rounded-2xl;
+                h3 {
+                    @apply text-[#666C73] text-sm not-italic font-bold leading-[18px] tracking-[1px] uppercase rounded-2xl px-[24px] pb-[16px];
+                }
+                ul {
+                    @apply  flex flex-col items-start w-full;
+                    li {
+                        @apply w-full;
+                        a {
+                            @apply flex gap-[8px] items-center px-[24px] py-[16px] w-full;
+                            @apply text-[#021825] text-lg not-italic font-semibold leading-[26px];
+
+                            &:hover {
+                                @apply bg-[#E9EFFB] text-[#2A50B0];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

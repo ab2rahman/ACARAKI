@@ -1,0 +1,63 @@
+{
+    "components" : [
+        {
+            "type": "banner",
+            "data": {
+              "title": "acaraki Jamu Festival Edisi Juni",
+              "subtitle": "Coming Soon",
+              "date": "Sarinah, 22 Juni 2025",
+              "location": "Beli Tiket",
+              "url": "https://tiketapasaja.com/event-buy/acaraki-jamu-festival-edisi-juni-welcome-package",
+              "image": "/imgs/dummy/banner.jpg"
+            }
+        },
+        {
+            "type": "events",
+            "data": {
+                "title": "Kompetisi",
+                "description": "Siap Tantang Diri di Acaraki Jamu Festival dan bawa pulang hadiah!<br /> Segera daftarkan diri dan jadilah bagian dari kebanggaan budaya nusantara.",
+                "mixology": {
+                    "title": "Acaraki Jamu Mixologist",
+                    "description": "Panggilan kepada seluruh Mixologist di Indonesia untuk bersama menyambut Hari Jamu Nasional! Dapatkan kesempatan menang hadiah jutaan rupiah!",
+                    "link": "/acaraki-jamu-mixologist",
+                    "image": "/imgs/mixologist-new.png",
+                    "period": "11 Mei - 18 Mei 2025"
+                },
+                "events": [
+                    {
+                        "id": 1,
+                        "name": "Fashion Show Design Showcase",
+                        "date": "22 Juni 2025",      
+                        "img": "/imgs/dummy/event-juni-2.png",
+                        "isPastEvent": false,
+                        "link": "/acaraki-fashion-designer"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Langkah Tradisi Jamu Gendong",
+                        "date": "TBD",
+                        "img": "/imgs/dummy/event-juli.png",
+                        "isPastEvent": false,
+                        "link": null
+                    },
+                    {
+                        "id": 3,
+                        "name": "Kreasi Jamu Gendong",
+                        "date": "27 April 2025",
+                        "img": "/imgs/dummy/event-april.png",
+                        "isPastEvent": true,
+                        "link": null
+                    },
+                    {
+                        "id": 4,
+                        "name": "Acaraki Jamu Mixologist",
+                        "date": "25 Mei 2025",
+                        "img": "/imgs/dummy/event-mei.png",    
+                        "isPastEvent": false,
+                        "link": null
+                    }
+                ]
+            }
+        }
+    ]
+}   
