@@ -1,0 +1,95 @@
+.registration-container {
+  @apply relative flex justify-center items-center pb-[56px];
+}
+
+.register-button {
+  @apply rounded-[0px_31px] border border-[#000] bg-[#FCA311] text-black hover:bg-white hover:text-black transition-all duration-300 font-bold justify-center sm:w-fit py-[17px] px-[32px] m-auto flex items-center gap-x-[10px] w-full sm:min-w-[300px];
+}
+
+.modal-overlay {
+  @apply fixed inset-0 bg-black/50 flex justify-center sm:items-center z-[1000] sm:p-5 overflow-y-auto;
+}
+
+.modal-content {
+  @apply bg-white p-8 rounded-lg sm:w-[90%] w-full max-w-[700px] relative shadow-md sm:max-h-[90vh] overflow-y-auto mx-auto;
+  
+  h4 {
+    @apply text-[22px] font-bold text-black text-center mb-8;
+  }
+}
+
+// Custom scrollbar styles
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.close-button {
+  @apply absolute top-4 right-4 bg-transparent border-none text-2xl cursor-pointer text-gray-500 p-1 leading-none;
+  &:hover {
+    @apply text-gray-800;
+  }
+}
+form {
+  @apply flex flex-col gap-y-4;
+
+}
+.form-group {
+
+  label {
+    @apply block mb-1 text-[#0A0A0A] font-medium;
+  }
+
+  input[type="text"], input[type="email"], input[type="tel"], textarea {
+    @apply w-full px-3 placeholder:text-[#757575] py-[6px] border border-[#C2C2C2] rounded text-[14px] transition-colors duration-300 shadow-[1px_2px_2px_0px_rgba(0,0,0,0.08)_inset];
+    &:focus {
+      @apply outline-none border-[#FCA311] ring-0 ring-[#FCA311]/25;
+    }
+  }
+
+  textarea {
+    @apply h-[120px];
+  }
+
+  .phone-input {
+    @apply flex items-center;
+    > div {
+      @apply w-[80px] text-center text-[#0A0A0A] font-bold text-[16px] py-1.5 px-3 rounded-l border border-[#BDBDBD] border-r-0 bg-[#F5F5F5];
+      border-radius: 4px 0px 0px 4px;
+    }
+    input {
+      @apply rounded-l-none;
+    }
+
+    [data-lastpass-icon-root] {
+      @apply hidden;
+    }
+  }
+
+  .btn-upload {
+    @apply flex items-center gap-x-2 bg-white border border-dashed border-[#C2C2C2] rounded-md py-[6px] px-[10px];
+    svg {
+      @apply w-[25px] h-[24px];
+    }
+    p {
+      @apply text-[#5A5A5A] text-[14px] font-normal;
+    }
+  }
+}
+
+.submit-button {
+  @apply rounded-[0px_31px] border border-[#000] bg-[#FCA311] text-black hover:bg-white hover:text-black transition-all duration-300 font-bold justify-center w-fit py-[17px] px-[32px] m-auto flex items-center gap-x-[10px] min-w-[300px] w-full;
+}
