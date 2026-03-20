@@ -6,9 +6,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ACARAKI is a monorepo for Festival Jamu Nusantara 2025 - a cultural event management system featuring:
 - **Backend**: Laravel 11 API with Filament 3 admin panel
-- **Frontend**: Next.js 15 public-facing website
+- **Frontend**: Next.js 16 public-facing website
 
 **Domain**: Festival event registration, member check-ins via QR codes, activity tracking with points system, and gallery management.
+
+**Production URL**: https://festivaljamunusantara.com/
+
+---
+
+## Quick Start
+
+### Local Development (Docker)
+```bash
+cd backend
+docker-compose up -d          # Start all services
+# Backend: http://localhost/api
+# phpMyAdmin: http://localhost:8080
+
+cd ../frontend
+npm run dev                   # Frontend: http://localhost:3000
+```
+
+### Production Server
+- **SSH**: `ssh root@117.53.44.223` (password stored securely)
+- **Backend**: `/var/www/app-be` (Laravel + PHP-FPM)
+- **Frontend**: `/var/www/app-fe` (Next.js 16, Node.js 18.20.8)
+- **Database**: MySQL 8.0 (acaraki_db)
 
 ---
 
@@ -18,7 +41,12 @@ ACARAKI is a monorepo for Festival Jamu Nusantara 2025 - a cultural event manage
 ```bash
 cd backend
 
-# Development server
+# Docker (recommended)
+docker-compose up -d
+docker-compose exec acaraki-be php artisan migrate
+docker-compose exec acaraki-be php artisan storage:link
+
+# Manual development server
 php artisan serve
 
 # Run tests
@@ -143,19 +171,60 @@ frontend/src/
 
 ## Environment Variables
 
-### Backend (.env)
+### Backend (.env) - Docker
 ```bash
-APP_ENV=local
-APP_DEBUG=true
-DB_CONNECTION=sqlite              # Default: SQLite
-CMS_ROUTE="webadmin"              # Admin panel route
-FRONTEND_APP_URL=https://...      # For QR code URLs
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=acaraki_db
+DB_USERNAME=acaraki_user
+DB_PASSWORD=eGMtQznGqo~2
+REDIS_HOST=redis
+REDIS_PORT=6379
 ```
 
-### Frontend
+### Frontend (.env.local) - Local Development
 ```bash
-NEXT_PUBLIC_API_URL=http://localhost:8000/api  # Backend API URL
+NEXT_PUBLIC_API_URL=http://localhost/api
 ```
+
+### Frontend (.env) - Production (Vercel)
+```bash
+NEXT_PUBLIC_API_URL=https://festivaljamunusantara.com/api
+```
+
+---
+
+## Docker Services
+
+| Service | Container | Port | Purpose |
+|---------|-----------|------|---------|
+| Laravel | acaraki-be | 80 | Backend API |
+| MySQL | acaraki-mysql | 3306 | Database |
+| Redis | acaraki-redis | 6379 | Cache/Queue |
+| phpMyAdmin | acaraki-phpmyadmin | 8080 | DB Admin |
+
+---
+
+## Backup Files
+
+| File | Location | Size | Description |
+|------|----------|------|-------------|
+| Database backup | `acaraki_backup_20260320.sql.gz` | 237KB | Full database dump |
+| Storage backup | `backend/storage_temp.tar.gz` | 2.1GB | All images/files (local only) |
+
+---
+
+## Recent Changes (March 2025)
+
+- ✅ Set up Docker environment for local development
+- ✅ Downloaded ~5000 gallery images from server
+- ✅ Cleaned malware from server startup scripts
+- ✅ Upgraded Next.js from 15.3.3 to 16.2.0
+- ✅ Upgraded server Node.js from v12 to v18.20.8
+- ✅ Configured CORS for localhost access
+- ✅ Fixed nginx configuration for production
+- ✅ Deployed frontend to Vercel (dev-acaraki)
 
 ---
 
