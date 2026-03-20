@@ -2,17 +2,17 @@
 const nextConfig = {
   productionBrowserSourceMaps: false,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '8081',
+        port: '80',
         pathname: '/storage/**',
       },
       {
-        protocol: 'https',
+        protocol: 'http',
         hostname: 'localhost',
-        port: '8081',
         pathname: '/storage/**',
       },
       {

@@ -17,9 +17,9 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie', 'event/*'],
 
-    'allowed_methods' => ['GET', 'POST', 'OPTIONS'],
+    'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://festivaljamunusantara.com', 'https://staging.festivaljamunusantara.com', 'http://localhost:3000'],
+    'allowed_origins' => ['https://festivaljamunusantara.com', 'https://staging.festivaljamunusantara.com', 'http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'],
 
     'allowed_origins_patterns' => [],
 

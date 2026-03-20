@@ -21,3 +21,17 @@ yarn-error.log
 .DS_Store
 *.zip
 lpcb-acaraki-new-main/
+
+# Docker runtime
+backend/docker/
+
+# Backups (keep specific backups)
+*.sql.gz
+!acaraki_backup_20260320.sql.gz
+*.tar.gz
+!storage_temp.tar.gz
+acaraki_backup*
+!acaraki_backup_20260320.sql.gz
+
+# Vercel deployment
+frontend/vercel.json
