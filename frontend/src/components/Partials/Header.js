@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import LogoBadgeGroup from "@/components/Partials/LogoBadgeGroup";
 
 const Header = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -79,9 +80,7 @@ const Header = () => {
             <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${lastScrollY > 0 ? 'bg-black/60' : ''} ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div className="container sm:py-[23px] py-[10px]">
                     <div className="flex justify-between items-center">
-                        <Link href="/" className="relative md:min-w-[250px] min-w-[150px] md:w-[250px] w-[150px] md:h-[75px] h-[45px]">
-                            <Image src="/imgs/Logo-Atas-01.png" alt="Logo" fill />
-                        </Link>
+                        <LogoBadgeGroup />
 
                         {/* Desktop Navigation */}
                         <nav className={`hidden md:flex items-center gap-6 rounded-[14px] ${lastScrollY === 0 ? 'bg-black/50' : ''} py-[13px] px-[20px]`}>

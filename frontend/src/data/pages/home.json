@@ -52,33 +52,6 @@
             ]
         },
         {
-            "type": "statistik",
-            "data": {
-                "statistik": [
-                    {
-                        "number": 100,
-                        "description": "Laskar Jamu Gendong",
-                        "plus": false
-                    },
-                    {
-                        "number": 800,
-                        "description": "Peserta Event",
-                        "plus": true
-                    },
-                    {
-                        "number": 7,
-                        "description": "Aktivitas Menarik",
-                        "plus": false
-                    },
-                    {
-                        "number": 25,
-                        "description": "Juta Rupiah Doorprize",
-                        "plus": false
-                    }
-                ]
-            }
-        },
-        {
             "type": "highlight",
             "data": {
                 "title": "Keseruan Festival",
@@ -178,7 +151,7 @@
                         "rundown": [
                             {
                                 "time": "06.00 WIB",
-                                "title": "Opening Ceremony",
+                                "title": "Opening Ceremony",
                                 "label": ""
                             },
                             {
@@ -270,17 +243,17 @@
                         "link": null
                     },
                     {
-                        "id": 4,    
+                        "id": 4,
                         "name": "Acaraki Jamu Mixologist",
                         "date": "25 Mei 2025",
-                        "img": "/imgs/dummy/event-mei.png",    
+                        "img": "/imgs/dummy/event-mei.png",
                         "isPastEvent": false,
                         "link": "/acaraki-jamu-mixologist"
                     },
                     {
                         "id": 5,
                         "name": "Fashion Show Design Showcase",
-                        "date": "22 Juni 2025",      
+                        "date": "22 Juni 2025",
                         "img": "/imgs/dummy/event-juni.png",
                         "isPastEvent": false,
                         "link": "/acaraki-fashion-designer"
@@ -350,4 +323,4 @@
             }
         }
     ]
-}   
+}

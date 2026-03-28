@@ -1,32 +1,7 @@
-import { Be_Vietnam_Pro, Archivo, Inter, Manrope } from "next/font/google";
 import "../../public/styles/global.scss";
 import Footer from "@/components/Partials/Footer";
 import Header from "@/components/Partials/Header";
 import QRScanner from "@/components/QRScanner/QRScanner";
-
-const beVietnamPro = Be_Vietnam_Pro({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-be-vietnam-pro",
-});
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-archivo",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-manrope",
-});
 
 export const metadata = {
   title: "Festival Jamu Nusantara 2025 - Acaraki Jamu Fashion Designer Competition",
@@ -100,14 +75,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* End Google Tag Manager */}
       </head>
-      <body
-        className={`
-          ${beVietnamPro.variable} 
-          ${archivo.variable} 
-          ${inter.variable} 
-          ${manrope.variable} 
-          antialiased`}
-      >
+      <body className="font-museo antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -118,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        
+
         <Header />
         <main>
           {children}

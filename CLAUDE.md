@@ -192,6 +192,8 @@ frontend/src/
 │   ├── Member/         # Member area components (LoginRegister, MemberDetails)
 │   ├── Partials/       # Header, Footer
 │   └── QRScanner/      # Mobile QR scanner component (floating FAB)
+├── constants/          # Design system constants
+│   └── design.js       # Key Visual fonts, colors, typography tokens
 ├── data/               # JSON content data
 ├── hooks/              # Custom React hooks
 └── utils/
@@ -312,6 +314,9 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
 - ✅ Set up Docker environment for local development
 - ✅ Configured PM2 for frontend auto-restart and boot persistence
 - ✅ Fixed production 502 errors (API + frontend service management)
+- ✅ Added Key Visual design system (fonts + colors)
+- ✅ Created design constants at `frontend/src/constants/design.js`
+- ✅ Created LogoBadgeGroup component for sponsor logos in header
 
 ---
 
@@ -326,6 +331,93 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
   - Removed XMRig crypto-miner cron entries from root's crontab
   - Files were already deleted (`/usr/bin/.update`, `/tmp/x86_64.kok`)
   - System is now clean with MALDET (Linux Malware Detect) running
+
+---
+
+## Design System
+
+Based on BPOM x acaraki Jamu Festival Key Visual (June 2026)
+
+### Typography
+Fonts are located in `frontend/public/fonts/` (sourced from `/Downloads/Fonts`)
+
+| Font | Usage | Tailwind Class | File |
+|------|-------|----------------|------|
+| **SS Nickson One** | "acaraki" logo, main titles | `font-display` | `S&S Nickson One.otf` |
+| **Museo** | Body text, navigation, dates | `font-museo` | `Museo-*.ttf` (weights 100-900) |
+
+```jsx
+// Usage examples
+<h1 className="font-display text-4xl">acaraki</h1>
+<p className="font-museo">Body text here</p>
+```
+
+### Color Palette
+
+| Category | Color | Hex | Usage |
+|----------|-------|-----|-------|
+| **Primary** | Beige | `#E8DCC8` | Backgrounds |
+| | Brown | `#5C4033` | Text, headers |
+| | Brown Dark | `#3C2A20` | Secondary text |
+| | Gold | `#D4A84B` | Accents, highlights |
+| **Nature** | Green | `#4A7C59` | Wellness theme |
+| | Green Light | `#7BA37B` | Foliage accents |
+| **Brand** | Orange | `#FCA311` | CTAs, buttons |
+
+```jsx
+// Usage with Tailwind utility classes
+<div className="bg-[#E8DCC8]">Beige background</div>
+<div className="text-[#5C4033]">Brown text</div>
+<div className="text-[#D4A84B]">Gold accent</div>
+```
+
+### Design Constants
+Design tokens are exported from `frontend/src/constants/design.js`:
+
+```javascript
+import { COLORS, FONTS, TYPOGRAPHY } from '@/constants/design';
+
+// Access colors
+const beige = COLORS.PRIMARY.BEIGE;
+const gold = COLORS.PRIMARY.GOLD;
+
+// Access fonts
+const displayFont = FONTS.DISPLAY;
+```
+
+### Component Styling Guide
+
+**Banner:**
+- Title: `font-display` for "acaraki", `font-museo` for subtitle
+- Background: 90vh height, bottom 90% of image
+
+**Header:**
+- Nav items: `font-museo font-bold`
+- Active/hover: Gold (`#D4A84B`)
+- Background: Brown (`#5C4033`) with 90% opacity
+- Logo badges: `LogoBadgeGroup` component with gradient backgrounds
+
+**LogoBadgeGroup Component:**
+Located at `frontend/src/components/Partials/LogoBadgeGroup.js`
+- Displays 3 sponsor logos with gradient card backgrounds
+- Responsive sizing: mobile 52px height, desktop 60px height
+- Gradient: `from-[#f3e6cf] to-[#d6b98b]` with rounded bottom corners
+- Middle logo slightly larger (64px on desktop)
+- Default logos: GP Jamu, acaraki x Cap Badak, BPOM
+
+```jsx
+import LogoBadgeGroup from "@/components/Partials/LogoBadgeGroup";
+
+// With default logos
+<LogoBadgeGroup />
+
+// With custom logos
+<LogoBadgeGroup
+    images={[
+        { src: "/imgs/logo.png", alt: "Logo" },
+    ]}
+/>
+```
 
 ---
 
