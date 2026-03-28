@@ -2,6 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Tickets = ({ festival }) => {
+    // Don't render if no festival data
+    if (!festival || !festival.tickets) {
+        return null;
+    }
+
     return (
         <section id="tiket" className="tickets-section">
             <div className="container flex flex-col md:flex-row justify-between">

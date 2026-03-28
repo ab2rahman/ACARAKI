@@ -32,6 +32,14 @@ class FestivalController extends Controller
     public function index()
     {
         $festival = Festival::orderBy('date', 'desc')->first();
+
+        if (!$festival) {
+            return response()->json([
+                'success' => true,
+                'data' => null,
+            ]);
+        }
+
         $festival->append('indonesian_date');
 
         return response()->json([

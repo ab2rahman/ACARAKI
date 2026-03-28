@@ -91,13 +91,13 @@ const Banner = ({ data, festival }) => {
                         {currentSlideData.subtitle}
                     </p>
                     <h1 className="text-white max-w-[800px] transition-all duration-500">
-                        {festival.title}
+                        {festival?.title || currentSlideData.title}
                     </h1>
                     <div className="flex items-center gap-2">
-                        {festival.indonesian_date && festival.location && (
+                        {festival?.indonesian_date && festival?.location && (
                             <Link href={currentSlideData.url} target="_blank">
                             <p className="text-white md:text-[24px] sm:text-[16px] text-[14px] font-bold">
-                                {`${festival.indonesian_date} • ${festival.location}`}
+                                {`${festival?.indonesian_date || ''} • ${festival?.location || ''}`}
                                 </p>
                             </Link>
                         )}

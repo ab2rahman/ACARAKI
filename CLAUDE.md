@@ -28,10 +28,59 @@ npm run dev                   # Frontend: http://localhost:3000
 ```
 
 ### Production Server
-- **SSH**: `ssh root@117.53.44.223` (password stored securely)
-- **Backend**: `/var/www/app-be` (Laravel + PHP-FPM)
-- **Frontend**: `/var/www/app-fe` (Next.js 16, Node.js 18.20.8)
-- **Database**: MySQL 8.0 (acaraki_db)
+- **SSH**: `ssh root@117.53.44.223` (password: `2026~acarak1`)
+- **Backend**: `/var/www/app-be` (Laravel + PHP-FPM 8.2)
+- **Frontend**: `/var/www/app-fe` (Next.js 15.3.3, Node.js 18.20.8, PM2 managed)
+- **Database**: MySQL 8.0 (acaraki_db) at localhost
+- **DB Credentials**: acaraki_user / eGMtQznGqo~2
+- **Cron Cleaned**: Malware (XMRig miner) removed from crontab (March 2026)
+
+#### PM2 Process Management (Frontend)
+```bash
+# SSH to server first
+ssh root@117.53.44.223
+
+# Check process status
+pm2 list
+
+# View logs
+pm2 logs acaraki-fe
+
+# Restart frontend
+pm2 restart acaraki-fe
+
+# Stop/Start
+pm2 stop acaraki-fe
+pm2 start acaraki-fe
+
+# Monitor resources
+pm2 monit
+
+# After making changes, save for reboot persistence
+pm2 save
+```
+
+#### Frontend Deployment
+```bash
+# SSH to server
+ssh root@117.53.44.223
+
+# Navigate to frontend directory
+cd /var/www/app-fe
+
+# Pull latest code
+git pull
+
+# Install dependencies (if needed)
+npm install --legacy-peer-deps
+
+# Build production bundle
+npm run build
+
+# Restart PM2 process
+pm2 restart acaraki-fe
+pm2 save
+```
 
 ---
 
@@ -43,8 +92,9 @@ cd backend
 
 # Docker (recommended)
 docker-compose up -d
-docker-compose exec acaraki-be php artisan migrate
-docker-compose exec acaraki-be php artisan storage:link
+docker-compose exec backend-acaraki-be-1 php artisan migrate
+docker-compose exec backend-acaraki-be-1 php artisan storage:link
+# Note: Container name is `backend-acaraki-be-1`
 
 # Manual development server
 php artisan serve
@@ -72,6 +122,10 @@ php artisan make:model              # Create model
 ### Frontend (Next.js)
 ```bash
 cd frontend
+
+# Install QR scanner dependency (if needed)
+npm install react-qr-scanner --legacy-peer-deps
+npm install @babel/runtime --legacy-peer-deps
 
 # Development (requires NEXT_PUBLIC_API_URL env variable)
 npm run dev
@@ -133,10 +187,11 @@ frontend/src/
 │   ├── check-in/       # Member QR code check-in
 │   └── member/         # Member profile & activities
 ├── components/         # React components
-│   ├── Home/           # Homepage components
+│   ├── Home/           # Homepage components (Banner, Tickets, Galleries, etc.)
 │   ├── EventDetail/    # Event page components
-│   ├── Member/         # Member area components
-│   └── Partials/       # Header, Footer
+│   ├── Member/         # Member area components (LoginRegister, MemberDetails)
+│   ├── Partials/       # Header, Footer
+│   └── QRScanner/      # Mobile QR scanner component (floating FAB)
 ├── data/               # JSON content data
 ├── hooks/              # Custom React hooks
 └── utils/
@@ -155,8 +210,14 @@ frontend/src/
 ### QR Code System
 - **Festivals/Booths**: Auto-generate 12-char alphanumeric codes on create
 - **QR images**: Stored in `storage/app/public/qrcodes/`, served via `/storage/`
-- **Check-in**: Members scan QR codes → `/api/member/check-in` → awards points
+- **Check-in via Scanner**: Mobile-only floating QR scanner button → opens camera → scans code → `/api/member/check-in` → awards points
+- **Check-in via URL**: Members can also visit `/check-in/{code}` directly
 - **Points**: Festival = 100 points, Booth = 50 points
+- **Scanner Component**: `frontend/src/components/QRScanner/QRScanner.js`
+  - Only visible on mobile (<768px)
+  - Only shows when user is authenticated
+  - Uses `react-qr-scanner` library
+  - Floating orange FAB button at bottom-right corner
 
 ### File Uploads
 - **Submissions**: Multiple file fields (`file_1` to `file_5`, `id_image`) stored in `storage/app/public/submissions/`
@@ -213,24 +274,88 @@ NEXT_PUBLIC_API_URL=https://festivaljamunusantara.com/api
 | Database backup | `acaraki_backup_20260320.sql.gz` | 237KB | Full database dump |
 | Storage backup | `backend/storage_temp.tar.gz` | 2.1GB | All images/files (local only) |
 
+## Data Sync from Production
+
+To sync production data to local (database + storage):
+
+```bash
+# 1. Dump production database (requires SSH access)
+ssh root@117.53.44.223
+mysqldump -u acaraki_user -p'eGMtQznGqo~2' acaraki_db > /tmp/acaraki_prod.sql
+
+# 2. Copy to local and import
+scp root@117.53.44.223:/tmp/acaraki_prod.sql /tmp/acaraki_prod.sql
+docker exec -i acaraki-mysql mysql -u acaraki_user -p'eGMtQznGqo~2' acaraki_db < /tmp/acaraki_prod.sql
+
+# 3. Download and extract storage files
+ssh root@117.53.44.223 "cd /var/www/app-be && tar -czf /tmp/storage.tar.gz storage/app/public/"
+scp root@117.53.44.223:/tmp/storage.tar.gz /tmp/storage.tar.gz
+tar -xzf /tmp/storage.tar.gz -C backend/storage/app/public/
+
+# 4. Ensure storage link is created
+cd backend
+docker-compose exec backend-acaraki-be-1 php artisan storage:link
+```
+
 ---
 
-## Recent Changes (March 2025)
+## Recent Changes (March 2026)
 
+- ✅ Added mobile QR scanner component with floating FAB button
+- ✅ Fixed frontend null safety for Banner, Tickets components
+- ✅ Fixed FestivalController null handling for empty database
+- ✅ Fixed docker-compose.yml with default WWWGROUP/WWWUSER values
+- ✅ Synced production database (6 galleries, 6647 images) to local
+- ✅ Extracted production storage files (2.1GB) to local
+- ✅ Created storage symlink for proper image serving
+- ✅ Cleaned malware (XMRig crypto-miner) from production crontab
 - ✅ Set up Docker environment for local development
-- ✅ Downloaded ~5000 gallery images from server
-- ✅ Cleaned malware from server startup scripts
-- ✅ Upgraded Next.js from 15.3.3 to 16.2.0
-- ✅ Upgraded server Node.js from v12 to v18.20.8
-- ✅ Configured CORS for localhost access
-- ✅ Fixed nginx configuration for production
-- ✅ Deployed frontend to Vercel (dev-acaraki)
+- ✅ Configured PM2 for frontend auto-restart and boot persistence
+- ✅ Fixed production 502 errors (API + frontend service management)
 
 ---
 
 ## Development Notes
 
-- **Database**: Uses SQLite by default (`database/database.sqlite`)
+- **Database**: Uses MySQL 8.0 in Docker, SQLite for local fallback
 - **Timezone**: Asia/Makassar (`APP_TIMEZONE` in .env)
 - **Image optimization**: Uses `joshembling/image-optimizer` package
 - **Frontend fetches**: Uses client-side `useEffect` for API calls (not SSR)
+- **Storage symlink**: Must run `php artisan storage:link` after first setup to serve uploaded files
+- **Production Malware Cleanup (March 2026)**:
+  - Removed XMRig crypto-miner cron entries from root's crontab
+  - Files were already deleted (`/usr/bin/.update`, `/tmp/x86_64.kok`)
+  - System is now clean with MALDET (Linux Malware Detect) running
+
+---
+
+## Production Troubleshooting
+
+### 502 Bad Gateway Error
+
+**Frontend returns 502** (homepage not loading):
+```bash
+# Check if PM2 process is running
+pm2 list
+
+# If stopped/errored, restart
+pm2 restart acaraki-fe
+
+# Check what's using port 3000
+ss -tlnp | grep 3000
+
+# If port conflict, kill the process
+kill -9 <PID>
+
+# Then restart PM2
+pm2 restart acaraki-fe
+```
+
+**API returns 502** (backend not responding):
+```bash
+# Restart PHP-FPM
+systemctl restart php8.2-fpm
+
+# Check status
+systemctl status php8.2-fpm
+```

@@ -45,10 +45,6 @@ const Header = () => {
 
     const navItems = [
         {
-            label: "Event Package",
-            href: "/#tiket",
-        },
-        {
             label: "Acara",
             href: "/#acara",
         },
@@ -57,17 +53,21 @@ const Header = () => {
             href: "/#kompetisi",
         },
         {
-            label: "Daftar",
-            href: "/#daftar",
+            label: "Event Package",
+            href: "/#tiket",
         },
         {
             label: "Galeri",
             href: "/#galeri",
         },
         {
-            label: "Games",
-            href: "/estafet-permainan-nusantara",
+            label: "Registrasi",
+            href: "/member",
         },
+        // {
+        //     label: "Games",
+        //     href: "/estafet-permainan-nusantara",
+        // },
     ];
 
     const isActive = (href) => {

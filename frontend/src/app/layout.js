@@ -2,6 +2,7 @@ import { Be_Vietnam_Pro, Archivo, Inter, Manrope } from "next/font/google";
 import "../../public/styles/global.scss";
 import Footer from "@/components/Partials/Footer";
 import Header from "@/components/Partials/Header";
+import QRScanner from "@/components/QRScanner/QRScanner";
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
@@ -123,6 +124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           {children}
         </main>
         <Footer />
+        <QRScanner />
       </body>
     </html>
   );
