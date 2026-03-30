@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
 import Image from 'next/image';
 import Link from 'next/link';
+import Cloud from '../Cloud';
 
 const Events = ({ data }) => {
     const prevRef = useRef(null);
@@ -32,8 +33,9 @@ const Events = ({ data }) => {
 
     return (
         <>
-            <section id="kompetisi" className="events-section">
-                <div className="container">
+            <section id="kompetisi" className="events-section relative">
+                <Cloud />
+                <div className="container relative z-10">
                     <div className="flex flex-col gap-6 max-w-[1060px] mb-[20px]">
                         <h2 className="text-white">{data.title}</h2>
                         <p className="text-[20px]/[normal] text-white" dangerouslySetInnerHTML={{ __html: data.description }} />

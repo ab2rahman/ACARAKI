@@ -66,35 +66,63 @@
         {
             "type": "tickets",
             "data": {
-                "title": "2.5K Fun Walk",
-                "description": "acaraki Jamu Festival features a 2.5K fun walk, traditional games, jamu tasting, and a fashion design exhibition.",
-                "period": "13 - 27 Agustus 2025",
                 "tickets": [
                     {
-                        "title": "COMEBACK DEALS (CD)",
-                        "description": "Comeback Deal Jamu Walk Pack",
-                        "term": "Bagi yang pernah mengikuti aJF edisi April - Juli",
-                        "price": "150.000",
-                        "packages": [
-                            "Jersey",
-                            "BIB number",
-                            "Medal",
-                            "Kartu Games, 5 Koin & 2 Produk"
-                        ],
-                        "url": "https://tiketapasaja.com/event-buy/fun-walk-25k-acaraki-jamu-festival-edisi-agustus-2025-comeback-deal"
+                        "category": "TIKET FESTIVAL",
+                        "description": "Festival Access (Aneka Jamuan Makanan, Musik, Mainan Tradisional, Workshop) + Free Product & Voucher",
+                        "url": "#",
+                        "options": [
+                            {
+                                "name": "1 DAY",
+                                "price": "Rp65.000"
+                            },
+                            {
+                                "name": "2 DAY",
+                                "price": "Rp100.000"
+                            }
+                        ]
                     },
                     {
-                        "title": "WELCOME PACKAGE (WP)",
-                        "description": "Welcome Package Jamu Walk Pack",
-                        "term": "Peserta Baru",
-                        "price": "180.000",
-                        "packages": [
-                            "Jersey",
-                            "BIB number",
-                            "Bakul Jamu & Selendang Gendong",
-                            "Kartu Games, 5 Koin & 2 Produk"
-                        ],
-                        "url": "https://tiketapasaja.com/event-buy/fun-walk-25k-acaraki-jamu-festival-edisi-agustus-2025-welcome-package"
+                        "category": "JAMU FIT FEST",
+                        "description": "Include tiket festival 1 hari + Free Product & Voucher",
+                        "url": "#",
+                        "options": [
+                            {
+                                "name": "FUN WALK",
+                                "price": "Rp200.000",
+                                "inclusions": "Bakul Jamu + Jersey + BIB Number"
+                            },
+                            {
+                                "name": "5K FUN RUN",
+                                "price": "Rp250.000",
+                                "inclusions": "Jersey + Medali + BIB Number"
+                            },
+                            {
+                                "name": "YOGA - POUNDFIT",
+                                "price": "Rp100.000",
+                                "inclusions": "Kaos olahraga + sewa property matras/ stick"
+                            },
+                            {
+                                "name": "ZUMBA",
+                                "price": "Rp60.000",
+                                "inclusions": "Kaos olahraga"
+                            }
+                        ]
+                    },
+                    {
+                        "category": "COMPETITION",
+                        "description": "Include tiket festival 1 hari + Free Product & Voucher",
+                        "url": "#",
+                        "options": [
+                            {
+                                "name": "TEMU LAWAK",
+                                "price": "Rp100.000"
+                            },
+                            {
+                                "name": "MIXOLOGIST",
+                                "price": "Rp100.000"
+                            }
+                        ]
                     }
                 ]
             }
