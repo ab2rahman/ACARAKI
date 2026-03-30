@@ -309,6 +309,10 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
 
 ## Recent Changes (March 2026)
 
+- ✅ **HeroOrnaments** component created with decorative SVG frame and ornament layout
+- ✅ **CountdownTimer** component added with large bold numbers and white labels with shadow
+- ✅ Added 21 ornament PNG assets (Ornaments-02 through Ornaments-22) for decorative backgrounds
+- ✅ Homepage updated with HeroOrnaments as first section (banner removed)
 - ✅ Added mobile QR scanner component with floating FAB button
 - ✅ Fixed frontend null safety for Banner, Tickets components
 - ✅ Fixed FestivalController null handling for empty database
@@ -431,6 +435,33 @@ import LogoBadgeGroup from "@/components/Partials/LogoBadgeGroup";
     ]}
 />
 ```
+
+---
+
+## Homepage Sections
+
+The homepage (`frontend/src/data/pages/home.json`) consists of the following sections:
+
+| # | Section | Component | Description |
+|---|--------|-----------|-------------|
+| 1 | **HeroOrnaments** | HeroOrnaments | Main hero section with decorative SVG frame, countdown timer, and festival info |
+| 2 | **Highlight** | Highlight | "Keseruan Festival" — showcase of festival activities |
+| 3 | **Tickets** | Tickets | "2.5K Fun Walk" — ticket packages (COMEBACK DEALS & WELCOME PACKAGE) |
+| 4 | **Schedules** | Schedules | "Susunan Acara" — event rundown and schedule |
+| 5 | **Events** | Events | "Kompetisi" — competitions section (Mixologist, Games, Fashion) |
+| 6 | **Galleries** | Galleries | "Galeri Keseruan" — photo galleries with links |
+
+### Homepage Components Reference
+
+| Component | File Path | Purpose |
+|-----------|-----------|---------|
+| HeroOrnaments | `components/Home/HeroOrnaments.js` | Decorative hero with SVG frame, ornaments, countdown |
+| CountdownTimer | `components/Home/CountdownTimer.js` | Countdown timer to event date |
+| Highlight | `components/Home/Highlight.js` | Festival activities showcase |
+| Tickets | `components/Home/Tickets.js` | Ticket pricing and packages |
+| Schedules | `components/Home/Schedules.js` | Event schedule/rundown |
+| Events | `components/Home/Events.js` | Competitions and events |
+| Galleries | `components/Home/Galleries.js` | Photo gallery display |
 
 ---
 
