@@ -147,7 +147,7 @@ const HeroOrnaments = () => {
             </div>
 
             {/* Top Left Ornament - Mirrored */}
-            <div className="absolute -top-16 left-0 w-48 h-48 md:w-64 md:h-64 pointer-events-none opacity-60 scale-x-[-1]">
+            <div className="absolute -top-16 left-0 w-48 h-48 md:w-64 md:h-64 pointer-events-none opacity-100 scale-x-[-1]">
                 <Image
                     src="/imgs/Ornaments-17.png"
                     alt="Top Left Ornament"
@@ -157,7 +157,7 @@ const HeroOrnaments = () => {
             </div>
 
             {/* Top Right Ornament */}
-            <div className="absolute -top-20 right-0 w-64 h-64 md:w-80 md:h-80 pointer-events-none opacity-70">
+            <div className="absolute -top-20 right-0 w-64 h-64 md:w-80 md:h-80 pointer-events-none opacity-100">
                 <Image
                     src="/imgs/Ornaments-17.png"
                     alt="Top Right Ornament"
@@ -167,24 +167,75 @@ const HeroOrnaments = () => {
             </div>
 
             {/* Floating Ornaments - closer together, no overlap */}
-            <div className="absolute top-12 left-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-50">
+            <div className="absolute top-12 left-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-100">
                 <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain" />
             </div>
             {/* <div className="absolute top-36 left-[42%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-40">
                 <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain" />
             </div> */}
-            <div className="absolute top-16 left-[50%] -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 pointer-events-none opacity-45">
+            <div className="absolute top-16 left-[50%] -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 pointer-events-none opacity-100">
                 <Image src="/imgs/Ornaments-05.png" alt="Ornament" fill className="object-contain" />
             </div>
             {/* <div className="absolute top-40 right-[42%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-35">
                 <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain" />
             </div> */}
-            <div className="absolute top-20 right-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-40">
+            <div className="absolute top-20 right-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-100">
                 <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain" />
             </div>
 
-            {/* Bottom Left Ornament */}
-            <div className="absolute bottom-0 -left-20 w-96 h-96 md:-left-32 md:w-[500px] md:h-[500px] pointer-events-none opacity-90">
+            {/* Bottom Left Ornament-07 */}
+            <div className="absolute -bottom-44 left-0 w-[400px] h-[400px] md:-bottom-52 md:w-[550px] md:h-[550px] pointer-events-none opacity-100">
+                <Image
+                    src="/imgs/Ornaments-07.png"
+                    alt="Bottom Left Ornament 07"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* Bottom Left Ornaments - 08, 09, 10 */}
+            <div className="absolute bottom-8 -left-4 w-48 h-48 md:w-56 md:h-56 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-08.png" alt="Ornament 08" fill className="object-contain" />
+            </div>
+            <div className="absolute -bottom-4 left-28 w-44 h-44 md:w-52 md:h-52 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-09.png" alt="Ornament 09" fill className="object-contain" />
+            </div>
+            <div className="absolute bottom-4 left-52 w-40 h-40 md:w-48 md:h-48 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-10.png" alt="Ornament 10" fill className="object-contain" />
+            </div>
+
+            {/* Bottom Right Ornaments - 13, 14, 15, 16, 11, 12 - spread from middle to right */}
+            <div className="absolute -bottom-4 left-[55%] w-20 h-20 md:w-24 md:h-24 pointer-events-none opacity-100 scale-x-[-1]">
+                <Image src="/imgs/Ornaments-13.png" alt="Ornament 13" fill className="object-contain" />
+            </div>
+            <div className="absolute -bottom-7 left-[60%] w-32 h-32 md:w-40 md:h-40 pointer-events-none opacity-100 scale-x-[-1]">
+                <Image src="/imgs/Ornaments-12.png" alt="Ornament 12" fill className="object-contain" />
+            </div>
+            <div className="absolute -bottom-12 left-[67%] w-44 h-44 md:w-52 md:h-52 pointer-events-none opacity-100 scale-x-[-1]">
+                <Image src="/imgs/Ornaments-14.png" alt="Ornament 14" fill className="object-contain" />
+            </div>
+            <div className="absolute bottom-28 left-[92%] w-28 h-28 md:w-36 md:h-36 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-15.png" alt="Ornament 15" fill className="object-contain" />
+            </div>
+            <div className="absolute bottom-24 left-[88%] w-32 h-32 md:w-40 md:h-40 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-16.png" alt="Ornament 16" fill className="object-contain" />
+            </div>
+            <div className="absolute bottom-2 left-[78%] w-48 h-48 md:w-56 md:h-56 pointer-events-none opacity-100 scale-x-[-1]">
+                <Image src="/imgs/Ornaments-11.png" alt="Ornament 11" fill className="object-contain" />
+            </div>
+
+            {/* Bottom Right Ornament-06 */}
+            <div className="absolute -bottom-32 right-0 w-80 h-80 md:-bottom-40 md:w-[450px] md:h-[450px] pointer-events-none opacity-100">
+                <Image
+                    src="/imgs/Ornaments-06.png"
+                    alt="Bottom Right Ornament 06"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* Bottom Left Ornament - Extended */}
+            <div className="absolute bottom-0 -left-20 w-96 h-96 md:-left-32 md:w-[500px] md:h-[500px] pointer-events-none opacity-100">
                 <Image
                     src="/imgs/Ornaments-19.png"
                     alt="Bottom Left Ornament"
@@ -193,8 +244,8 @@ const HeroOrnaments = () => {
                 />
             </div>
 
-            {/* Bottom Right Ornament - Mirrored */}
-            <div className="absolute bottom-0 -right-16 w-64 h-64 md:-right-24 md:w-80 md:h-80 pointer-events-none opacity-70 scale-x-[-1]">
+            {/* Bottom Right Ornament - Mirrored Extended */}
+            <div className="absolute bottom-0 -right-16 w-80 h-80 md:-right-24 md:w-96 md:h-96 pointer-events-none opacity-100 scale-x-[-1]">
                 <Image
                     src="/imgs/Ornaments-19.png"
                     alt="Bottom Right Ornament"
