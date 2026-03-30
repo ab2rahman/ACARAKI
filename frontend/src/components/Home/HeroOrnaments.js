@@ -204,6 +204,17 @@ const HeroOrnaments = () => {
                 <Image src="/imgs/Ornaments-10.png" alt="Ornament 10" fill className="object-contain" />
             </div>
 
+            {/* Ornaments-02 - middle left bottom */}
+            <div className="absolute -bottom-4 left-[25%] w-28 h-28 md:w-32 md:h-32 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-02.png" alt="Ornament 02" fill className="object-contain" />
+            </div>
+            <div className="absolute -bottom-8 left-[32%] w-24 h-24 md:w-28 md:h-28 pointer-events-none opacity-100">
+                <Image src="/imgs/Ornaments-02.png" alt="Ornament 02" fill className="object-contain" />
+            </div>
+            <div className="absolute -bottom-6 left-[20%] w-20 h-20 md:w-24 md:h-24 pointer-events-none opacity-90">
+                <Image src="/imgs/Ornaments-02.png" alt="Ornament 02" fill className="object-contain" />
+            </div>
+
             {/* Bottom Right Ornaments - 13, 14, 15, 16, 11, 12 - spread from middle to right */}
             <div className="absolute -bottom-4 left-[55%] w-20 h-20 md:w-24 md:h-24 pointer-events-none opacity-100 scale-x-[-1]">
                 <Image src="/imgs/Ornaments-13.png" alt="Ornament 13" fill className="object-contain" />
