@@ -29,7 +29,7 @@ const CountdownTimer = ({ targetDate = "2026-06-06T00:00:00" }) => {
     }, [targetDate]);
 
     return (
-        <div className="flex items-center justify-center gap-6 md:gap-8">
+        <div className="flex items-center justify-center gap-3 md:gap-8">
             {[
                 { label: 'Hari', value: countdown.days },
                 { label: 'Jam', value: countdown.hours },
@@ -37,12 +37,12 @@ const CountdownTimer = ({ targetDate = "2026-06-06T00:00:00" }) => {
                 { label: 'Detik', value: countdown.seconds },
             ].map((item) => (
                 <div key={item.label} className="flex flex-col items-center">
-                    <div className="bg-black/50 rounded-lg px-6 py-4 min-w-[90px] md:min-w-[110px] shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-                        <span className="text-white text-4xl md:text-5xl font-bold font-display">
+                    <div className="bg-black/50 rounded-lg px-3 py-2 md:px-6 md:py-4 min-w-[60px] md:min-w-[110px] shadow-lg" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+                        <span className="text-white text-2xl md:text-5xl font-bold font-display">
                             {String(item.value).padStart(2, '0')}
                         </span>
                     </div>
-                    <span className="text-white text-base md:text-lg mt-2 font-museo font-bold tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{item.label}</span>
+                    <span className="text-white text-xs md:text-lg mt-1 md:mt-2 font-museo font-bold tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{item.label}</span>
                 </div>
             ))}
         </div>
