@@ -45,12 +45,13 @@
     font-style: italic;
 }
 
-@font-face {
-    font-family: 'Museo';
-    src: url('/fonts/Museo-700.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
+// Museo 700 normal - use 900 as fallback since Museo-700.ttf doesn't exist
+// @font-face {
+//     font-family: 'Museo';
+//     src: url('/fonts/Museo-700.ttf') format('truetype');
+//     font-weight: 700;
+//     font-style: normal;
+// }
 
 @font-face {
     font-family: 'Museo';

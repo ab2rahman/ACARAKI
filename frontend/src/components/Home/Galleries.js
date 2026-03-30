@@ -17,22 +17,43 @@ const Galleries = ({ data }) => {
         const fetchGalleries = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`${API_URL}/gallery`);
+                const response = await axios.get(`${API_URL}/gallery`, { timeout: 5000 });
                 if (response.data.status === 'success') {
                     setGalleries(response.data.data);
+                    setError(null);
                 } else {
-                    setError('Failed to fetch galleries');
+                    throw new Error('API returned error');
                 }
             } catch (err) {
-                console.error('Error fetching galleries:', err);
-                setError('Failed to fetch galleries');
+                console.log('API not available, using fallback data');
+                // Use fallback data from home.json with proper slugs
+                const fallbackGalleries = data?.links?.map((link, index) => {
+                    // Generate slug from title (e.g., "Galeri aJF Sarinah - 22 Juni 2025" -> "ajf-sarinah-22-juni-2025")
+                    const slug = link.title
+                        .toLowerCase()
+                        .replace(/^galeri /i, '')
+                        .replace(/[^a-z0-9]+/g, '-')
+                        .replace(/^-|-$/g, '');
+
+                    return {
+                        id: index + 1,
+                        title: link.title,
+                        slug: slug,
+                        url: `/gallery/${slug}`,
+                        cover_image_url: data?.galleries?.[index]?.image || null,
+                        description: data?.galleries?.[index]?.description || null,
+                        items_count: 0
+                    };
+                }) || [];
+                setGalleries(fallbackGalleries);
+                setError(null);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchGalleries();
-    }, [API_URL]);
+    }, [API_URL, data]);
 
     const handleAllGalleries = () => {
         setSlice(galleries.length);
@@ -50,45 +71,44 @@ const Galleries = ({ data }) => {
                     <div className="text-white text-center">Loading galleries...</div>
                 )}
 
-                {error && (
-                    <div className="text-red-400 text-center">{error}</div>
-                )}
-
-                {!loading && !error && galleries.length > 0 && (
+                {!loading && galleries.length > 0 && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[18px] items-start">
                         {galleries.slice(0, slice).map((gallery, index) => (
-                            <Link 
-                            href={`/gallery/${gallery.slug}`} 
-                            key={gallery.id} 
-                            className="link-gallery grid grid-cols-[1fr_auto] items-center gap-4"
-                        >
-                            <div className="flex items-start gap-4">
-                            {gallery.cover_image_url && (
-                                <div className="gallery-cover-image shrink-0 w-[150px] h-[150px]">
-                                    <Image
-                                        src={gallery.cover_image_url}
-                                        alt={gallery.title}
-                                        width={150}
-                                        height={150}
-                                        className="rounded-lg object-cover w-full h-full"
-                                    />
-                                </div>
-                            )}
-                                <div className="gallery-info flex-grow">
-                                    <h3 className="gallery-title font-bold break-words whitespace-normal">{gallery.title}</h3>
-                                    {gallery.description && (
-                                        <p className="gallery-description text-sm opacity-80 whitespace-normal">{gallery.description}</p>
+                            <Link
+                                href={gallery.url || `/gallery/${gallery.slug}`}
+                                key={gallery.id}
+                                target={gallery.url?.includes('http') ? '_blank' : '_self'}
+                                className="link-gallery grid grid-cols-[1fr_auto] items-center gap-4"
+                            >
+                                <div className="flex items-start gap-4">
+                                    {gallery.cover_image_url && (
+                                        <div className="gallery-cover-image shrink-0 w-[150px] h-[150px]">
+                                            <Image
+                                                src={gallery.cover_image_url}
+                                                alt={gallery.title}
+                                                width={150}
+                                                height={150}
+                                                className="rounded-lg object-cover w-full h-full"
+                                            />
+                                        </div>
                                     )}
-                                    <span className="gallery-count text-xs opacity-60">
-                                        {gallery.items_count} images
-                                    </span>
+                                    <div className="gallery-info flex-grow">
+                                        <h3 className="gallery-title font-bold break-words whitespace-normal">{gallery.title}</h3>
+                                        {gallery.description && (
+                                            <p className="gallery-description text-sm opacity-80 whitespace-normal">{gallery.description}</p>
+                                        )}
+                                        {gallery.items_count > 0 && (
+                                            <span className="gallery-count text-xs opacity-60">
+                                                {gallery.items_count} images
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
                         ))}
-                        
+
                         {slice < galleries.length && (
-                            <button 
+                            <button
                                 onClick={handleAllGalleries}
                                 className="link-gallery bg-transparent border border-white text-white hover:bg-white hover:text-black transition-colors"
                             >
@@ -98,7 +118,7 @@ const Galleries = ({ data }) => {
                     </div>
                 )}
 
-                {!loading && !error && galleries.length === 0 && (
+                {!loading && galleries.length === 0 && (
                     <div className="text-white text-center opacity-60">No galleries available</div>
                 )}
             </div>

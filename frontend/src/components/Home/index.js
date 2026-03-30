@@ -27,7 +27,7 @@ const HomeComponents = ({ type, data, festival }) => {
             return (
                 <>
                     <RunningText />
-                    <Tickets festival={festival} />
+                    <Tickets data={data} festival={festival} />
                 </>
             );
         case "schedules":

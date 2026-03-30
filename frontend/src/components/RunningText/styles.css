@@ -3,12 +3,22 @@
   overflow: hidden;
 }
 
-.running-text-container .swiper-wrapper {
-  transition-timing-function: linear !important;
+@keyframes cloud-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2400px);
+  }
 }
 
-.running-text-slide {
-  width: auto !important;
-  white-space: nowrap;
-  display: inline-block;
-} 
+.animate-cloud-scroll {
+  display: flex;
+  width: max-content;
+  animation: cloud-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.running-text-container:hover .animate-cloud-scroll {
+  animation-play-state: paused;
+}

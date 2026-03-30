@@ -8,13 +8,23 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Home() {
   const [festival, setFestival] = useState({});
+
   useEffect(() => {
-    fetch(`${API_URL}/festival`)
-      .then((response) => response.json())
-      .then((data) => {
-        setFestival(data.data);
-      });
-  }, []);
+    const fetchFestival = async () => {
+      try {
+        const response = await fetch(`${API_URL}/festival`);
+        if (response.ok) {
+          const data = await response.json();
+          setFestival(data.data);
+        }
+      } catch (err) {
+        console.log('API not available, using static data');
+        // Festival will remain empty object, components will use fallback data from home.json
+      }
+    };
+
+    fetchFestival();
+  }, [API_URL]);
 
   return (
     <>

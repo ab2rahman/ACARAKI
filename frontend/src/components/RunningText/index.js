@@ -1,66 +1,54 @@
 "use client"
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import Image from 'next/image';
-import './styles.css';
+import React, { useEffect, useRef } from 'react';
+import Image from "next/image";
 
 const RunningText = () => {
+  const scrollRef = useRef(null);
+  const animationRef = useRef(null);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    let position = 0;
+    const speed = 0.5; // pixels per frame
+
+    const animate = () => {
+      position -= speed;
+      if (position <= -5400) { // 8 batiks × 675px
+        position = 0;
+      }
+      if (container) {
+        container.style.transform = `translateX(${position}px)`;
+      }
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="running-text-container bg-[#0394BF]">
-      {/* Commented out slider - replaced with static divider */}
-      {/* <Swiper
-        modules={[Autoplay]}
-        spaceBetween={0}
-        slidesPerView="auto"
-        loop={true}
-        freeMode={true}
-        centeredSlides={true}
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-        }}
-        speed={10000}
-        className="running-text-swiper"
-      >
-        {Array.from({ length: 4 }).map((_, index) => (
-          <SwiperSlide key={index} className="running-text-slide">
-            <Image 
-              src={`/batik-1.svg`} 
-              alt={`batik-${index}`} 
-              width={675} 
-              height={72} 
-              className={`hidden lg:block ${index % 2 === 1 ? 'scale-x-[-1]' : ''}`}
-            />
-            <Image 
-              src={`/batik-1.svg`} 
-              alt={`batik-${index}`} 
-              width={675} 
-              height={50} 
-              className={`lg:hidden ${index % 2 === 1 ? 'scale-x-[-1]' : ''}`}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
-      
-      {/* Static horizontal repeating divider */}
-      <div className="flex overflow-hidden">
+    <div className="running-text-container bg-[#0394BF] relative overflow-hidden">
+      <div ref={scrollRef} className="flex" style={{ willChange: 'transform' }}>
         {Array.from({ length: 8 }).map((_, index) => (
           <div key={index} className="flex-shrink-0">
-            <Image 
-              src={`/batik-1.svg`} 
-              alt={`batik-divider-${index}`} 
-              width={675} 
-              height={72} 
-              className={`hidden lg:block ${index % 2 === 1 ? 'scale-x-[-1]' : ''}`}
+            <Image
+              src={`/batik-1.svg`}
+              alt={`batik-divider-${index}`}
+              width={675}
+              height={72}
+              className={`hidden md:block ${index % 2 === 1 ? 'scale-x-[-1]' : ''}`}
             />
-            <Image 
-              src={`/batik-1.svg`} 
-              alt={`batik-divider-${index}`} 
-              width={675} 
-              height={50} 
-              className={`lg:hidden ${index % 2 === 1 ? 'scale-x-[-1]' : ''}`}
+            <Image
+              src={`/batik-1.svg`}
+              alt={`batik-divider-${index}`}
+              width={675}
+              height={50}
+              className={`md:hidden ${index % 2 === 1 ? 'scale-x-[-1]' : ''}`}
             />
           </div>
         ))}
