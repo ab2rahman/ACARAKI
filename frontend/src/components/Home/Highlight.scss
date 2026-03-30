@@ -54,14 +54,26 @@
     border: 2px solid #5C4033;
 
     @media (max-width: 768px) {
-      height: 250px;
+      height: 60px;
       flex-direction: row;
       flex-wrap: nowrap;
-      overflow-x: auto;
+      overflow-x: scroll;
       overflow-y: hidden;
-      min-width: 100%;
-      padding-left: 0;
-      padding-bottom: 0.5rem;
+      width: 100%;
+      padding: 0.25rem 50vw 0.25rem 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 2rem;
+      justify-content: flex-start;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
 
     &::-webkit-scrollbar {
@@ -81,7 +93,11 @@
     @media (max-width: 768px) {
       &::-webkit-scrollbar {
         width: auto;
-        height: 6px;
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(92, 64, 51, 0.05);
       }
     }
 
@@ -93,8 +109,20 @@
       cursor: pointer;
       transition: all 0.3s ease;
 
+      @media (max-width: 768px) {
+        flex-shrink: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.25rem 0.5rem;
+        scroll-snap-align: center;
+      }
+
       &:hover {
         transform: translateX(4px);
+
+        @media (max-width: 768px) {
+          transform: none;
+        }
       }
 
       .indicator {
@@ -106,14 +134,26 @@
         transition: all 0.3s;
         flex-shrink: 0;
 
+        @media (max-width: 768px) {
+          width: 20px;
+          height: 3px;
+          margin-right: 0;
+          margin-bottom: 0.15rem;
+        }
+
         &.active {
           width: 6px;
           height: 28px;
+
+          @media (max-width: 768px) {
+            width: 24px;
+            height: 3px;
+          }
         }
 
         &.inactive {
-          background: #5C4033;
-          opacity: 0.5;
+          background: #8B4513;
+          opacity: 0.6;
         }
       }
 
@@ -124,13 +164,18 @@
         color: #5C4033;
         transition: all 0.3s;
 
+        @media (max-width: 768px) {
+          font-size: 0.8rem;
+          white-space: nowrap;
+        }
+
         &.active {
           color: #D4A84B;
         }
 
         &.inactive {
-          color: #5C4033;
-          opacity: 0.7;
+          color: #8B4513;
+          opacity: 0.8;
         }
       }
     }

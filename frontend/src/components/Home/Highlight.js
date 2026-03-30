@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import './Highlight.scss';
 import Cloud from '../Cloud';
 
 const Highlight = ({ data }) => {
     const [currentSlide, setCurrentSlide] = useState(data.aktivitas[0].title);
+    const menuRef = useRef(null);
 
     // Event images for looping
     const eventImages = [
@@ -22,6 +23,48 @@ const Highlight = ({ data }) => {
         description: item.description || ''
     }));
 
+    // Handle scroll to auto-select visible item on mobile
+    useEffect(() => {
+        const menu = menuRef.current;
+        if (!menu) return;
+
+        const handleScroll = () => {
+            const menuRect = menu.getBoundingClientRect();
+            const centerX = menuRect.left + menuRect.width / 2;
+
+            // Find item closest to center
+            const items = menu.querySelectorAll('.menu-item');
+            let closestItem = null;
+            let closestDistance = Infinity;
+
+            items.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenterX = itemRect.left + itemRect.width / 2;
+                const distance = Math.abs(centerX - itemCenterX);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestItem = item;
+                }
+            });
+
+            if (closestItem) {
+                const titleElement = closestItem.querySelector('.menu-title');
+                if (titleElement) {
+                    const title = titleElement.textContent;
+                    if (title !== currentSlide) {
+                        setCurrentSlide(title);
+                    }
+                }
+            }
+        };
+
+        // Only add scroll listener on mobile
+        if (window.innerWidth <= 768) {
+            menu.addEventListener('scroll', handleScroll, { passive: true });
+            return () => menu.removeEventListener('scroll', handleScroll);
+        }
+    }, [currentSlide]);
 
     return (
         <section id="highlight" className="highlight-section relative">
@@ -30,7 +73,7 @@ const Highlight = ({ data }) => {
                 <h2>{data.title}</h2>
                 <p>{data.description}</p>
                 <div className="highlight-content">
-                    <div className="highlight-menu">
+                    <div className="highlight-menu" ref={menuRef}>
                         {data.aktivitas.map((item, index) => (
                             <div
                                 key={index}
