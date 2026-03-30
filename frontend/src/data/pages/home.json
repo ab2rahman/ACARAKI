@@ -11,36 +11,54 @@
                 "description": "Siap-siap! acaraki Jamu Festival edisi Juli segera dimulai! Lebih seru, lebih segar, dan tentunya penuh kejutan!",
                 "aktivitas": [
                     {
-                        "title": "Fun Walk Racing Challenge",
+                        "title": "Bakul Karya",
+                        "description": "Eksplorasi pameran budaya, jamu, kuliner, dan brand lokal.",
                         "image": "/imgs/dummy/keseruan.png"
+                    },
+                    {
+                        "title": "Jamu Fit Fest",
+                        "description": "Aktivitas wellness dari yoga, zumba, poundfit, jalan santai hingga fun run.",
+                        "image": "/imgs/dummy/keseruan-2.png"
+                    },
+                    {
+                        "title": "Jamu Free Flow Corner",
+                        "description": "Nikmati jamu sepuasnya langsung di berbagai titik festival.",
+                        "image": "/imgs/dummy/keseruan-3.png"
+                    },
+                    {
+                        "title": "Kapu Laga Budaya",
+                        "description": "Kompetisi seru untuk merayakan budaya dengan cara yang baru.",
+                        "image": "/imgs/dummy/keseruan.png"
+                    },
+                    {
+                        "title": "Karnaval Nusantara",
+                        "description": "Permainan tradisional dalam konsep modern.",
+                        "image": "/imgs/dummy/keseruan-2.png"
                     },
                     {
                         "title": "Parade Jamu Gendong",
-                        "image": "/imgs/dummy/keseruan-2.png"
-                    },
-                    {
-                        "title": "Estafet Games Nusantara",
+                        "description": "Parade ikonik dengan doorprize hingga puluhan juta rupiah.",
                         "image": "/imgs/dummy/keseruan-3.png"
                     },
                     {
-                        "title": "Karnaval Games Nusantara",
-                        "image": "/imgs/dummy/keseruan-3.png"
-                    },
-                    {
-                        "title": "Free Flow Jamu",
+                        "title": "Racik Workshop",
+                        "description": "Berbagai workshop budaya, dari craft hingga meracik jamu.",
                         "image": "/imgs/dummy/keseruan-4.png"
                     },
                     {
-                        "title": "Music Performance",
+                        "title": "Sorak Serai",
+                        "description": "Musik dan pertunjukan budaya yang energik.",
                         "image": "/imgs/dummy/keseruan.png"
                     },
                     {
-                        "title": "Fashion Runaway",
+                        "title": "Temu Lawak",
+                        "description": "Hiburan komedi dengan sentuhan cerita lokal yang segar.",
                         "image": "/imgs/dummy/keseruan-2.png"
                     },
                     {
-                        "title": "Total Doorprize Puluhan Juta Rupiah",
-                        "image": "/imgs/dummy/keseruan-2.png"
+                        "title": "Total Hadiah Ratusan Juta Rupiah",
+                        "description": "Hadiah hingga ratusan juta rupiah menanti Anda!",
+                        "image": "/imgs/dummy/keseruan-3.png"
                     }
                 ]
             }
