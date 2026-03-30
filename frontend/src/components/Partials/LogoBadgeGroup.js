@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const LogoBadgeGroup = ({ images = [] }) => {
   const defaultImages = [
-    { src: "/imgs/logo-gp-jamu-hires.png", alt: "GP Jamu" },
+    { src: "/imgs/logo-gp-jamu-name.png", alt: "GP Jamu" },
     { src: "/imgs/logo-acaraki-cap-badak-transparent.png", alt: "Acaraki" },
     { src: "/imgs/logo-bpom.png", alt: "BPOM" },
   ];
@@ -12,14 +12,14 @@ const LogoBadgeGroup = ({ images = [] }) => {
   const logos = images.length > 0 ? images : defaultImages;
 
   return (
-    <div className="flex items-center justify-center gap-3 md:gap-4">
+    <div className="flex items-center justify-center gap-2 md:gap-4">
       {logos.map((img, index) => (
         <div
           key={index}
           className="
             flex items-center justify-center
-            h-[70px] md:h-[75px]
-            px-4
+            h-[40px] md:h-[75px]
+            px-2 md:px-4
             rounded-b-xl
             bg-gradient-to-b from-[#f3e6cf] to-[#d6b98b]
             shadow-inner
@@ -28,9 +28,9 @@ const LogoBadgeGroup = ({ images = [] }) => {
           <Image
             src={img.src}
             alt={img.alt || `logo-${index}`}
-            width={300} // just a safe max width
+            width={300}
             height={100}
-            className="h-[52px] md:h-[60px] w-auto object-contain"
+            className="h-[28px] md:h-[60px] w-auto object-contain"
           />
         </div>
       ))}

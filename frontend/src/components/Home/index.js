@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import HeroOrnaments from "./HeroOrnaments";
 import Statistik from "./Statistik";
 import Highlight from "./Highlight";
 import Tickets from "./Tickets";
@@ -11,6 +12,8 @@ const HomeComponents = ({ type, data, festival }) => {
     switch (type) {
         case "banner":
             return <Banner data={data} festival={festival} />;
+        case "hero-ornaments":
+            return <HeroOrnaments />;
         case "statistik":
             return <Statistik data={data} festival={festival} />;
         case "highlight":

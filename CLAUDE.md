@@ -35,7 +35,7 @@ npm run dev                   # Frontend: http://localhost:3000
 - **DB Credentials**: acaraki_user / eGMtQznGqo~2
 - **Cron Cleaned**: Malware (XMRig miner) removed from crontab (March 2026)
 
-#### PM2 Process Management (Frontend)
+#### PM2 Process Management (Frontend + Backend)
 ```bash
 # SSH to server first
 ssh root@117.53.44.223
@@ -43,21 +43,27 @@ ssh root@117.53.44.223
 # Check process status
 pm2 list
 
-# View logs
+# Frontend (Next.js on port 3000)
 pm2 logs acaraki-fe
-
-# Restart frontend
 pm2 restart acaraki-fe
 
+# Backend (Laravel API on port 8000)
+pm2 logs acaraki-be
+pm2 restart acaraki-be
+
 # Stop/Start
-pm2 stop acaraki-fe
-pm2 start acaraki-fe
+pm2 stop acaraki-fe    # or acaraki-be
+pm2 start acaraki-fe   # or acaraki-be
 
 # Monitor resources
 pm2 monit
 
 # After making changes, save for reboot persistence
 pm2 save
+
+# PM2 systemd service (auto-start on boot)
+systemctl status pm2-root
+systemctl start pm2-root   # if stopped
 ```
 
 #### Frontend Deployment
@@ -310,13 +316,16 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
 - ✅ Synced production database (6 galleries, 6647 images) to local
 - ✅ Extracted production storage files (2.1GB) to local
 - ✅ Created storage symlink for proper image serving
-- ✅ Cleaned malware (XMRig crypto-miner) from production crontab
+- ✅ Cleaned malware (XMRig crypto-miner) from production crontab (Mar 28)
+- ✅ Removed additional malware (corn, defunctr, systemd-logind) from crontab (Mar 30)
+- ✅ Removed backdoor PHP webshells from public directory (Mar 30)
 - ✅ Set up Docker environment for local development
-- ✅ Configured PM2 for frontend auto-restart and boot persistence
-- ✅ Fixed production 502 errors (API + frontend service management)
+- ✅ Configured PM2 for frontend + backend auto-restart and boot persistence
+- ✅ Fixed production 502/504 errors (API + frontend service management)
 - ✅ Added Key Visual design system (fonts + colors)
 - ✅ Created design constants at `frontend/src/constants/design.js`
 - ✅ Created LogoBadgeGroup component for sponsor logos in header
+- ✅ Added CountdownTimer component for homepage
 
 ---
 
@@ -328,9 +337,13 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
 - **Frontend fetches**: Uses client-side `useEffect` for API calls (not SSR)
 - **Storage symlink**: Must run `php artisan storage:link` after first setup to serve uploaded files
 - **Production Malware Cleanup (March 2026)**:
-  - Removed XMRig crypto-miner cron entries from root's crontab
-  - Files were already deleted (`/usr/bin/.update`, `/tmp/x86_64.kok`)
-  - System is now clean with MALDET (Linux Malware Detect) running
+  - **March 28**: Removed XMRig crypto-miner cron entries (`/usr/bin/.update`, `/tmp/x86_64.kok`)
+  - **March 30**: Removed additional malware from crontab:
+    - `corn` and `defunctr` downloaders from `162.55.234.175:4082`
+    - `systemd-logind` fake binary in `/var/tmp`
+  - **Backdoor PHP files removed**: `3e1ea1274b13.php`, `e1a8fadf96.php`, `accesson.php`, etc.
+  - **Ongoing**: Botnet attacks attempting PHP exploit payloads (blocked by nginx)
+  - **Security status**: Clean, but monitor `crontab -l` regularly
 
 ---
 
@@ -423,31 +436,58 @@ import LogoBadgeGroup from "@/components/Partials/LogoBadgeGroup";
 
 ## Production Troubleshooting
 
-### 502 Bad Gateway Error
+### Security Monitoring
 
-**Frontend returns 502** (homepage not loading):
+Regular security checks to detect malware/intrusion:
 ```bash
-# Check if PM2 process is running
-pm2 list
+# Check crontab for malicious entries
+crontab -l
 
-# If stopped/errored, restart
-pm2 restart acaraki-fe
+# Check for suspicious processes
+ps aux | grep -E '(xmrig|miner|crypto|kdevtmpfsi|corn|defunctr)' | grep -v grep
 
-# Check what's using port 3000
-ss -tlnp | grep 3000
+# Check for backdoor PHP files (recently created)
+find /var/www/app-be/public -name '*.php' -mtime -7 ! -name 'index.php'
 
-# If port conflict, kill the process
-kill -9 <PID>
+# Check nginx logs for exploit attempts
+grep -E '(hello\.world|allow_url_include|auto_prepend_file)' /var/log/nginx/error.log | tail -20
 
-# Then restart PM2
-pm2 restart acaraki-fe
+# Check /var/tmp for malware
+ls -la /var/tmp/ | grep -v '^d.*systemd-private'
+
+# Scan for common backdoor patterns
+grep -r -l 'eval.*base64_decode\|eval.*gzinflate\|shell_exec' /var/www/app-be/public/ 2>/dev/null
 ```
 
-**API returns 502** (backend not responding):
-```bash
-# Restart PHP-FPM
-systemctl restart php8.2-fpm
+### 502/504 Gateway Timeout Errors
 
-# Check status
-systemctl status php8.2-fpm
+**504 Timeout** (upstream not responding):
+```bash
+# Check which service is down
+pm2 list                    # Check PM2 services
+ss -tlnp | grep -E '(3000|8000)'  # Check ports
+
+# If Backend (port 8000) is down:
+pm2 restart acaraki-be
+
+# If Frontend (port 3000) is down:
+pm2 restart acaraki-fe
+pm2 logs acaraki-fe --lines 50   # Check for errors
+
+# If PM2 systemd service is not running:
+systemctl start pm2-root
+systemctl enable pm2-root
+```
+
+**502 Bad Gateway**:
+```bash
+# Frontend returns 502 (homepage not loading):
+pm2 list
+pm2 restart acaraki-fe
+
+# API returns 502 (backend not responding):
+pm2 restart acaraki-be
+
+# If PHP-FPM admin panel issues:
+systemctl restart php8.2-fpm
 ```

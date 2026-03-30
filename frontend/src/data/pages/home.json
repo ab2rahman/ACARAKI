@@ -1,55 +1,8 @@
 {
     "components" : [
         {
-            "type": "banner",
-            "data": [
-              {
-                "title": "acaraki Jamu Festival",
-                "subtitle": "Merayakan Warisan Budaya Nusantara",
-                "date": " Minggu, 16 November 2025",
-                "location": "Kawasan Kota Tua",
-                "url": "#galeri",
-                "image": "/imgs/banner-19jun.jpg",
-                "displayInfo": true
-              },
-              {
-                "title": "acaraki Jamu Festival",
-                "subtitle": "Merayakan Warisan Budaya Nusantara",
-                "date": " Minggu, 16 November 2025",
-                "location": "Kawasan Kota Tua",
-                "url": "#galeri",
-                "image": "/imgs/home-page-bg-alt-2.png",
-                "displayInfo": true
-              },
-              {
-                "title": "acaraki Jamu Festival",
-                "subtitle": "Merayakan Warisan Budaya Nusantara",
-                "date": " Minggu, 16 November 2025",
-                "location": "Kawasan Kota Tua",
-                "url": "#galeri",
-                "image": "/imgs/home-page-bg-alt-3.jpg",
-                "displayInfo": true
-              },
-              {
-                "title": "acaraki Jamu Festival",
-                "subtitle": "Merayakan Warisan Budaya Nusantara",
-                "date": " Minggu, 16 November 2025",
-                "location": "Kawasan Kota Tua",
-                "url": "#galeri",
-                "image": "/imgs/home-page-bg-alt-4.jpg",
-                "displayInfo": true
-              },
-              {
-                "title": "acaraki Jamu Festival",
-                "subtitle": "Merayakan Warisan Budaya Nusantara",
-                "date": " Minggu, 16 November 2025",
-                "location": "Kawasan Kota Tua",
-                "url": "#galeri",
-                "image": "/imgs/home-page-bg-alt-5.jpg",
-                "displayInfo": true
-
-              }
-            ]
+            "type": "hero-ornaments",
+            "data": {}
         },
         {
             "type": "highlight",
