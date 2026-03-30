@@ -4,11 +4,21 @@ import { useState } from 'react';
 import Image from 'next/image';
 import './Highlight.scss';
 import Cloud from '../Cloud';
+
 const Highlight = ({ data }) => {
     const [currentSlide, setCurrentSlide] = useState(data.aktivitas[0].title);
-    const dataAktivitas = data.aktivitas.map((item) => ({
+
+    // Event images for looping
+    const eventImages = [
+        '/imgs/event1-bakul-jamu.png',
+        '/imgs/event2-fit.png',
+        '/imgs/event3-vibrant.png'
+    ];
+
+    const dataAktivitas = data.aktivitas.map((item, index) => ({
         title: item.title,
-        image: item.image,
+        // Loop through event images: 1, 2, 3, 1, 2, 3, ...
+        image: eventImages[index % 3],
         description: item.description || ''
     }));
 

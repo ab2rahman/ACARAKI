@@ -167,20 +167,20 @@ const HeroOrnaments = () => {
             </div>
 
             {/* Floating Ornaments - closer together, no overlap */}
-            <div className="absolute top-12 left-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-100">
-                <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain" />
+            <div className="absolute top-12 left-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-100 animate-float" style={{ animationDelay: '1s' }}>
+                <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
             </div>
             {/* <div className="absolute top-36 left-[42%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-40">
                 <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain" />
             </div> */}
-            <div className="absolute top-16 left-[50%] -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 pointer-events-none opacity-100">
-                <Image src="/imgs/Ornaments-05.png" alt="Ornament" fill className="object-contain" />
+            <div className="absolute top-16 left-[50%] -translate-x-1/2 w-32 h-32 md:w-40 md:h-40 pointer-events-none opacity-100 animate-float" style={{ animationDelay: '1.5s' }}>
+                <Image src="/imgs/Ornaments-05.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
             </div>
             {/* <div className="absolute top-40 right-[42%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-35">
                 <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain" />
             </div> */}
-            <div className="absolute top-20 right-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-100">
-                <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain" />
+            <div className="absolute top-20 right-[28%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-100 animate-float" style={{ animationDelay: '2s' }}>
+                <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
             </div>
 
             {/* Bottom Left Ornament-07 */}
