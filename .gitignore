@@ -37,3 +37,4 @@ acaraki_backup*
 
 # Vercel deployment
 frontend/vercel.json
+.vercel

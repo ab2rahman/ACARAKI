@@ -11,6 +11,7 @@ ACARAKI is a monorepo for Festival Jamu Nusantara 2025 - a cultural event manage
 **Domain**: Festival event registration, member check-ins via QR codes, activity tracking with points system, and gallery management.
 
 **Production URL**: https://festivaljamunusantara.com/
+**Dev/Staging URL**: https://dev-festivaljamunusantara.vercel.app/
 
 ---
 
@@ -236,6 +237,32 @@ frontend/src/
 - **Resources**: Auto-discovered from `app/Filament/Resources/`
 - **Theme**: Uses `hasnayeen/themes` plugin for theme switching
 
+### CORS Configuration
+CORS is configured on the production server to allow API requests from Vercel frontend:
+
+**Backend Laravel config** (`/var/www/app-be/config/cors.php`):
+```php
+'allowed_origins' => [
+    'https://festivaljamunusantara.com',
+    'https://staging.festivaljamunusantara.com',
+    'https://dev-festivaljamunusantara.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002',
+],
+
+'allowed_origins_patterns' => ['/.+\.vercel\.app$/'],
+```
+
+**Nginx config** (`/etc/nginx/sites-enabled/festivaljamunusantara.com.conf`):
+- Nginx proxies API requests to Laravel without overriding CORS headers
+- Origin header is passed through: `proxy_set_header Origin $http_origin;`
+
+**To add new domains to CORS:**
+1. Add to `allowed_origins` in Laravel config
+2. Run `php artisan config:clear`
+3. Restart Laravel: `pm2 restart acaraki-be`
+
 ---
 
 ## Environment Variables
@@ -260,6 +287,25 @@ NEXT_PUBLIC_API_URL=http://localhost/api
 ### Frontend (.env) - Production (Vercel)
 ```bash
 NEXT_PUBLIC_API_URL=https://festivaljamunusantara.com/api
+```
+
+### Vercel Deployment
+```bash
+cd frontend
+
+# Deploy to production (main site)
+npx vercel --prod
+
+# Deploy to dev environment only
+# Currently aliased to dev-festivaljamunusantara.vercel.app
+# To add production alias:
+npx vercel alias set festivaljamunusantara.com
+
+# To remove production alias (dev only):
+npx vercel alias rm festivaljamunusantara.com
+
+# List aliases
+npx vercel alias ls
 ```
 
 ---
@@ -330,6 +376,20 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
 - ✅ Created design constants at `frontend/src/constants/design.js`
 - ✅ Created LogoBadgeGroup component for sponsor logos in header
 - ✅ Added CountdownTimer component for homepage
+- ✅ **CORS Configuration** (Mar 31): Fixed nginx CORS to allow Vercel frontend
+  - Updated `/etc/nginx/sites-enabled/festivaljamunusantara.com.conf`
+  - Removed hardcoded CORS headers, let Laravel handle CORS
+  - Added `dev-festivaljamunusantara.vercel.app` to Laravel CORS config
+  - Added wildcard pattern `/.+\.vercel\.app$/` for all Vercel subdomains
+- ✅ **Vercel Deployment Setup** (Mar 31):
+  - Frontend deployed to Vercel at `https://dev-festivaljamunusantara.vercel.app/`
+  - Environment variable `NEXT_PUBLIC_API_URL` configured
+  - Production alias can be toggled on/off as needed
+- ✅ **Events Section Redesign** (Mar 31):
+  - Replaced Swiper carousel with 3-card grid layout
+  - Cards: MIXOLOGIST, TEMU LAWAK (coming soon), ESTAFET PERMAINAN NUSANTARA
+  - Styling matches Tickets section (font-display, brown #5C4033, gold borders)
+  - Centered layout with key visual typography
 
 ---
 
@@ -448,7 +508,7 @@ The homepage (`frontend/src/data/pages/home.json`) consists of the following sec
 | 2 | **Highlight** | Highlight | "Keseruan Festival" — showcase of festival activities |
 | 3 | **Tickets** | Tickets | "2.5K Fun Walk" — ticket packages (COMEBACK DEALS & WELCOME PACKAGE) |
 | 4 | **Schedules** | Schedules | "Susunan Acara" — event rundown and schedule |
-| 5 | **Events** | Events | "Kompetisi" — competitions section (Mixologist, Games, Fashion) |
+| 5 | **Events** | Events | "Kompetisi Jamu Festival 2026" — 3 competition cards (Mixologist, Temu Lawak, Estafet Permainan Nusantara) |
 | 6 | **Galleries** | Galleries | "Galeri Keseruan" — photo galleries with links |
 
 ### Homepage Components Reference

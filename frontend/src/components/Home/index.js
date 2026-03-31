@@ -4,6 +4,7 @@ import Statistik from "./Statistik";
 import Highlight from "./Highlight";
 import Tickets from "./Tickets";
 import Schedules from "./Schedules";
+import Rundown from "./Rundown";
 import Events from "./Events";
 import Galleries from "./Galleries";
 import RunningText from '@/components/RunningText';
@@ -35,6 +36,13 @@ const HomeComponents = ({ type, data, festival }) => {
                 <>
                     <RunningText />
                     <Schedules data={data} festival={festival} />
+                </>
+            );
+        case "rundown":
+            return (
+                <>
+                    <RunningText />
+                    <Rundown data={data} festival={festival} />
                 </>
             );
         case "events":

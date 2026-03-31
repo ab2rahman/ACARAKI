@@ -1,5 +1,5 @@
 {
-    "components" : [
+    "components": [
         {
             "type": "hero-ornaments",
             "data": {}
@@ -128,76 +128,313 @@
             }
         },
         {
-            "type": "schedules",
+            "type": "rundown",
             "data": {
-                "title": "Susunan Acara",
-                "description": "Festival Jamu Nusantara menghadirkan rangkaian acara yang memadukan tradisi dan inovasi. Setiap kegiatan menjadi langkah merayakan kearifan lokal lewat semangat jamu sebagai warisan budaya.",
-                "schedules": [
+                "title": "Susunan Acara Festival",
+                "stages": [
                     {
-                        "date": "14-15 November 2025",
-                        "title": "Jamu Walk Pack",
-                        "rundown": [
+                        "key": "jamu",
+                        "label": "JAMU STAGE"
+                    },
+                    {
+                        "key": "racik",
+                        "label": "RACIK STAGE"
+                    },
+                    {
+                        "key": "kids",
+                        "label": "KIDS CORNER"
+                    },
+                    {
+                        "key": "carnaval",
+                        "label": "CARNAVAL AREA"
+                    },
+                    {
+                        "key": "bakul",
+                        "label": "BAKUL KARYA"
+                    }
+                ],
+                "days": [
+                    {
+                        "subtitle": "Hari Pertama, Sabtu 6 Juni 2026",
+                        "banner": {
+                            "text": "JAMU WALK & RUN COLLECTION:",
+                            "time": "08.00 - 17.00 WIB",
+                            "venue": "(Kedai acaraki Kota Tua & Hutan Kota GBK)"
+                        },
+                        "headerTitle": "PERJAMUAN NUSANTARA",
+                        "schedule": [
                             {
-                                "time": "10:00 - 19:30 WIB",
-                                "title": "acaraki Cafe Kota Tua",
-                                "label": "Pengambilan Jamu Walk Pack"
+                                "time": "06.30 - 06.45",
+                                "duration": "15'",
+                                "isFullRow": true,
+                                "fullRowText": "Opening Festival Ceremony"
+                            },
+                            {
+                                "time": "06.45 - 08.00",
+                                "duration": "75'",
+                                "jamu": "Jamu Fit Fest\n(Walk & Run, Yoga,\nZumba, Pound Fit)",
+                                "racik": "Racik Workshop\n(Jamu & Lulur Making)",
+                                "kids": "Kids Corner\nActivities",
+                                "carnaval": "Permainan Tradisional\nNusantara",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "08.00 - 09.00",
+                                "duration": "60'",
+                                "jamu": "Jamu Fit Fest\nCool Down & Hydration",
+                                "racik": "Racik Workshop\nSesi 1",
+                                "kids": "Lomba Mewarnai\nJamu Heritage",
+                                "carnaval": "Permainan\nTradisional",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "09.00 - 10.00",
+                                "duration": "60'",
+                                "jamu": "Talkshow Jamu\n& Kesehatan",
+                                "racik": "Racik Workshop\nSesi 2",
+                                "kids": "Storytelling\nCerita Nusantara",
+                                "carnaval": "Estafet Games\nNusantara",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "10.00 - 10.30",
+                                "duration": "30'",
+                                "jamu": "Parade Jamu\nGendong",
+                                "racik": "Free Flow\nJamu Corner",
+                                "kids": "Craft Workshop\nJamu Kids",
+                                "carnaval": "Carnaval\nPerformance",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "10.30 - 11.00",
+                                "duration": "30'",
+                                "jamu": "Parade Jamu\nGendong",
+                                "racik": "Free Flow\nJamu Corner",
+                                "kids": "Craft Workshop\nJamu Kids",
+                                "carnaval": "Carnaval\nPerformance",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "11.00 - 12.00",
+                                "duration": "60'",
+                                "jamu": "Mixologist\nCompetition\nRound 1",
+                                "racik": "Racik Workshop\nSesi 3",
+                                "kids": "Kids Dance\nCompetition",
+                                "carnaval": "Estafet Games\nFinal",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "12.00 - 12.30",
+                                "duration": "30'",
+                                "isFullRow": true,
+                                "fullRowText": "ISHOMA (Istirahat, Sholat, Makan)"
+                            },
+                            {
+                                "time": "12.30 - 13.00",
+                                "duration": "30'",
+                                "jamu": "Live Music\nAcoustic",
+                                "racik": "Racik Demo\nChef Jamu",
+                                "kids": "Kids Corner\nFree Play",
+                                "carnaval": "Carnaval\nFree Roam",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "13.00 - 14.00",
+                                "duration": "60'",
+                                "jamu": "Mixologist\nCompetition\nRound 2",
+                                "racik": "Racik Workshop\nSesi 4",
+                                "kids": "Kids Talent\nShow",
+                                "carnaval": "Permainan\nTradisional",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "14.00 - 15.00",
+                                "duration": "60'",
+                                "jamu": "Temu Lawak\nCompetition",
+                                "racik": "Racik Workshop\nSesi 5",
+                                "kids": "Puppet Show\nWayang Jamu",
+                                "carnaval": "Carnaval\nParade",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "15.00 - 16.00",
+                                "duration": "60'",
+                                "jamu": "Temu Lawak\nFinal",
+                                "racik": "Free Flow\nJamu Corner",
+                                "kids": "Kids Corner\nActivities",
+                                "carnaval": "Permainan\nTradisional",
+                                "bakul": "UMKM &\nBooth Stand"
+                            },
+                            {
+                                "time": "16.00 - 17.00",
+                                "duration": "60'",
+                                "jamu": "Winner Compilation\nShow & Doorprize",
+                                "racik": "Free Flow\nJamu Corner",
+                                "kids": "Kids Corner\nPrize Giving",
+                                "carnaval": "Carnaval\nClosing",
+                                "bakul": "UMKM &\nBooth Closing"
+                            },
+                            {
+                                "time": "17.00 - 18.00",
+                                "duration": "60'",
+                                "jamu": "Fashion Runaway\nJamu Heritage",
+                                "racik": "—",
+                                "kids": "—",
+                                "carnaval": "—",
+                                "bakul": "—"
+                            },
+                            {
+                                "time": "18.00 - 19.00",
+                                "duration": "60'",
+                                "jamu": "Sorak Serai\nLive Performance",
+                                "racik": "—",
+                                "kids": "—",
+                                "carnaval": "—",
+                                "bakul": "—"
+                            },
+                            {
+                                "time": "19.00 - 21.00",
+                                "duration": "120'",
+                                "isFullRow": true,
+                                "fullRowText": "Closing Ceremony & After Party"
                             }
                         ]
                     },
                     {
-                        "date": "16 November 2025",
-                        "title": "Festival Day",
-                        "rundown": [
+                        "subtitle": "Hari Kedua, Minggu 7 Juni 2026",
+                        "schedule": [
                             {
-                                "time": "06.00 WIB",
-                                "title": "Opening Ceremony",
-                                "label": ""
+                                "time": "05.00",
+                                "isFullRow": true,
+                                "fullRowText": "OPEN GATE & DROPPING BAG"
                             },
                             {
-                                "time": "06.30 WIB",
-                                "title": "Flag Off - 2.5K Fun Walk",
-                                "label": ""
+                                "time": "05.30",
+                                "jamu": "OPENING CEREMONY,\nFLAG OFF GINGER RUN\n5K & FRESH WALK",
+                                "racik": "",
+                                "kids": "",
+                                "carnaval": "",
+                                "bakul": ""
                             },
                             {
-                                "time": "07.40 WIB",
-                                "title": "Winner Compilation Show",
-                                "label": ""
+                                "time": "07.00",
+                                "jamu": "SENAM SEHAT\n(7.30 - 8.00 WIB)",
+                                "racik": "",
+                                "kids": "",
+                                "carnaval": {"text": "\u2022 Karnaval Permainan Nusantara\n\u2022 Daftar Booth Sponsor\n\u2022 Booth Merchandise\n\u2022 Free Flow Jamu", "rowspan": 15},
+                                "bakul": {"text": "\u2022 Daftar Booth F&B\n\u2022 Daftar Booth Expo\n\u2022 Free Flow Jamu", "rowspan": 15}
                             },
                             {
-                                "time": "08.10 WIB",
-                                "title": "Estafet Games Nusantara",
-                                "label": ""
+                                "time": "08.00",
+                                "jamu": "PARADE JAMU GENDONG\n& DOORPRIZE",
+                                "racik": "",
+                                "kids": {"text": "MORNING\nPLAYGROUND", "rowspan": 2},
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
                             },
                             {
-                                "time": "11.10 WIB",
-                                "title": "Performance, Winner and Doorprize Announcement",
-                                "label": ""
+                                "time": "09.00",
+                                "jamu": "LAUNCHING PROGRAM BPOM\n09.00 - 09.15\nAWARDING, GRAND PRIZE &\nSORAK SERAI:\nBERLARI BERDENDANG",
+                                "racik": "",
+                                "kids": "__skip__",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
                             },
                             {
-                                "time": "11.20 WIB",
-                                "title": "MC Closing",
-                                "label": ""
+                                "time": "10.00",
+                                "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
+                                "racik": "TALKSHOW SPESIAL\nHARI JAMU\n10.00 - 10.30\nAWARDING PROGRAM BPOM\n10.30 - 11.00",
+                                "kids": "LOMBA MEWARNAI",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
                             },
                             {
-                                "time": "16.30 WIB",
-                                "title": "Fashion Runaway",
-                                "label": ""
+                                "time": "11.00",
+                                "jamu": "",
+                                "racik": "ACARAKI JOURNEY\nWORKSHOP",
+                                "kids": "",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
                             },
                             {
-                                "time": "18.30 WIB",
-                                "title": "Closing Ceremony",
-                                "label": ""
-                            }
-                        ]
-                    },
-                    {
-                        "date": "16 November 2025",
-                        "title": "All Day",
-                        "rundown": [
+                                "time": "12.00",
+                                "jamu": {"text": "BREAK SESSION", "colspan": 3},
+                                "racik": "__skip__",
+                                "kids": "__skip__",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
                             {
-                                "time": "Always On",
-                                "title": "Karnaval Games Nusantara & Free Flow Jamu",
-                                "label": "Larutan Penyegar Cap Badak, acaraki, Qerik"
+                                "time": "13.00",
+                                "jamu": "KOMPETISI MIXOLOGIST\nSemi Profesional",
+                                "racik": "ACARAKI JOURNEY\nWORKSHOP",
+                                "kids": "",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "14.00",
+                                "jamu": "KOMPETISI MIXOLOGIST\nProfesional",
+                                "racik": "KELAS DIY ART\nLukis & Warnai Bajumu!",
+                                "kids": "AKTIVITAS MERACIK\nJAMU",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "15.00",
+                                "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
+                                "racik": "LIVE COMPETITION\nKALIGRAFI:\nAKSARA NUSANTARA",
+                                "kids": "",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "16.00",
+                                "jamu": "SORAK SERAI:\nNADIN AMIZAH",
+                                "racik": "",
+                                "kids": {"text": "AFTERNOON\nPLAYGROUND", "rowspan": 2},
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "17.00",
+                                "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
+                                "racik": "",
+                                "kids": "__skip__",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "18.00",
+                                "jamu": "CULTURAL LIVE SHOW:\nTARI KECAK",
+                                "racik": "",
+                                "kids": "",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "19.00",
+                                "jamu": {"text": "SORAK SERAI:\nYURA YUNITA", "rowspan": 2},
+                                "racik": "",
+                                "kids": "",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "20.00",
+                                "jamu": "__skip__",
+                                "racik": "",
+                                "kids": "",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
+                            },
+                            {
+                                "time": "21.00",
+                                "jamu": {"text": "CLOSING", "colspan": 3},
+                                "racik": "__skip__",
+                                "kids": "__skip__",
+                                "carnaval": "__skip__",
+                                "bakul": "__skip__"
                             }
                         ]
                     }
@@ -207,55 +444,29 @@
         {
             "type": "events",
             "data": {
-                "title": "Kompetisi",
-                "description": "Siap Tantang Diri di Acaraki Jamu Festival dan bawa pulang hadiah!<br /> Segera daftarkan diri dan jadilah bagian dari kebanggaan budaya nusantara.",
-                "mixology": {
-                    "title": "Acaraki Jamu Mixologist",
-                    "description": "Panggilan kepada seluruh Mixologist di Indonesia untuk bersama menyambut Hari Jamu Nasional! Dapatkan kesempatan menang hadiah jutaan rupiah!",
-                    "link": "/acaraki-jamu-mixologist",
-                    "image": "/imgs/mixologist-new.png",
-                    "period": "11 Mei - 18 Mei 2025"
-                },
+                "title": "Kompetisi Jamu Festival 2026",
+                "description": "",
                 "events": [
                     {
                         "id": 1,
-                        "name": "Games Nusantara",
-                        "date": "16 November 2025",
-                        "img": "/imgs/section-banner-november.png",
-                        "isPastEvent": false,
-                        "link": "/estafet-permainan-nusantara"
+                        "name": "MIXOLOGIST",
+                        "cta": "LIHAT SELENGKAPNYA",
+                        "img": "/imgs/dummy/banner-mixologist.jpg",
+                        "link": "/acaraki-jamu-mixologist"
                     },
                     {
                         "id": 2,
-                        "name": "Langkah Tradisi Jamu Gendong",
-                        "date": "27 Juli 2025",
-                        "img": "/imgs/dummy/event-juli.png",
-                        "isPastEvent": true,
+                        "name": "TEMU LAWAK",
+                        "cta": "COMING SOON",
+                        "img": "/imgs/dummy/event-juni.png",
                         "link": null
                     },
                     {
                         "id": 3,
-                        "name": "Kreasi Jamu Gendong",
-                        "date": "27 April 2025",
-                        "img": "/imgs/dummy/event-april.png",
-                        "isPastEvent": true,
-                        "link": null
-                    },
-                    {
-                        "id": 4,
-                        "name": "Acaraki Jamu Mixologist",
-                        "date": "25 Mei 2025",
-                        "img": "/imgs/dummy/event-mei.png",
-                        "isPastEvent": false,
-                        "link": "/acaraki-jamu-mixologist"
-                    },
-                    {
-                        "id": 5,
-                        "name": "Fashion Show Design Showcase",
-                        "date": "22 Juni 2025",
-                        "img": "/imgs/dummy/event-juni.png",
-                        "isPastEvent": false,
-                        "link": "/acaraki-fashion-designer"
+                        "name": "ESTAFET PERMAINAN NUSANTARA",
+                        "cta": "LIHAT SELENGKAPNYA",
+                        "img": "/imgs/section-banner-november.png",
+                        "link": "/estafet-permainan-nusantara"
                     }
                 ]
             }
