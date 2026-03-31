@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getMemberProfile, getMemberEventHistory, logout } from '@/utils/auth';
+import { getMemberProfile, getMemberEventHistory, logout, changePassword } from '@/utils/auth';
 import './member.scss';
 
 const MemberDetails = ({ memberData, setMemberData, onLogout }) => {
@@ -10,6 +10,17 @@ const MemberDetails = ({ memberData, setMemberData, onLogout }) => {
     const [eventLoading, setEventLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState('');
+
+    // Change password state
+    const [showChangePassword, setShowChangePassword] = useState(false);
+    const [changePasswordData, setChangePasswordData] = useState({
+        current_password: '',
+        password: '',
+        password_confirmation: ''
+    });
+    const [changePasswordLoading, setChangePasswordLoading] = useState(false);
+    const [changePasswordErrors, setChangePasswordErrors] = useState({});
+    const [changePasswordSuccess, setChangePasswordSuccess] = useState('');
 
     // Fetch member profile and event history on component mount
     useEffect(() => {
@@ -66,6 +77,70 @@ const MemberDetails = ({ memberData, setMemberData, onLogout }) => {
         }
     };
 
+    const handleChangePassword = async (e) => {
+        e.preventDefault();
+        setChangePasswordErrors({});
+        setChangePasswordSuccess('');
+
+        // Validate form
+        const newErrors = {};
+        if (!changePasswordData.current_password) {
+            newErrors.current_password = 'Password saat ini harus diisi';
+        }
+        if (!changePasswordData.password) {
+            newErrors.password = 'Password baru harus diisi';
+        } else if (changePasswordData.password.length < 8) {
+            newErrors.password = 'Password baru harus minimal 8 karakter';
+        }
+        if (!changePasswordData.password_confirmation) {
+            newErrors.password_confirmation = 'Konfirmasi password baru harus diisi';
+        } else if (changePasswordData.password !== changePasswordData.password_confirmation) {
+            newErrors.password_confirmation = 'Konfirmasi password tidak cocok';
+        }
+
+        if (Object.keys(newErrors).length > 0) {
+            setChangePasswordErrors(newErrors);
+            return;
+        }
+
+        setChangePasswordLoading(true);
+
+        try {
+            const result = await changePassword(changePasswordData);
+
+            if (result.success) {
+                setChangePasswordSuccess('Password berhasil diubah!');
+                setChangePasswordData({
+                    current_password: '',
+                    password: '',
+                    password_confirmation: ''
+                });
+                setTimeout(() => {
+                    setShowChangePassword(false);
+                    setChangePasswordSuccess('');
+                }, 3000);
+            } else {
+                setChangePasswordErrors({ general: result.error });
+                if (result.errors) {
+                    setChangePasswordErrors(result.errors);
+                }
+            }
+        } catch (error) {
+            setChangePasswordErrors({ general: 'Terjadi kesalahan. Silakan coba lagi.' });
+        } finally {
+            setChangePasswordLoading(false);
+        }
+    };
+
+    const handlePasswordInputChange = (e) => {
+        const { name, value } = e.target;
+        setChangePasswordData(prev => ({ ...prev, [name]: value }));
+        // Clear field error when user starts typing
+        if (changePasswordErrors[name]) {
+            setChangePasswordErrors(prev => ({ ...prev, [name]: '' }));
+        }
+    };
+
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
         return new Date(dateString).toLocaleDateString('en-US', {
@@ -115,6 +190,12 @@ const MemberDetails = ({ memberData, setMemberData, onLogout }) => {
                 </div>
                 <div className="member-details-actions">
                     <button
+                        onClick={() => setShowChangePassword(!showChangePassword)}
+                        className="member-btn secondary"
+                    >
+                        {showChangePassword ? 'Batal' : 'Ganti Password'}
+                    </button>
+                    <button
                         onClick={handleLogout}
                         className="member-btn danger"
                     >
@@ -122,6 +203,92 @@ const MemberDetails = ({ memberData, setMemberData, onLogout }) => {
                     </button>
                 </div>
             </div>
+
+            {/* Change Password Form */}
+            {showChangePassword && (
+                <div className="member-change-password">
+                    <h3 className="member-change-password-title">Ganti Password</h3>
+
+                    {changePasswordSuccess && (
+                        <div className="member-auth-success">
+                            {changePasswordSuccess}
+                        </div>
+                    )}
+
+                    {changePasswordErrors.general && (
+                        <div className="member-auth-error">
+                            {changePasswordErrors.general}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleChangePassword}>
+                        <div className="member-form-group">
+                            <label htmlFor="current_password" className="member-form-label">
+                                Password Saat Ini
+                            </label>
+                            <input
+                                type="password"
+                                id="current_password"
+                                name="current_password"
+                                value={changePasswordData.current_password}
+                                onChange={handlePasswordInputChange}
+                                className={`member-profile-edit-input ${changePasswordErrors.current_password ? 'error' : ''}`}
+                                placeholder="Masukkan password saat ini"
+                                disabled={changePasswordLoading}
+                            />
+                            {changePasswordErrors.current_password && (
+                                <span className="member-form-error">{changePasswordErrors.current_password}</span>
+                            )}
+                        </div>
+
+                        <div className="member-form-group">
+                            <label htmlFor="password" className="member-form-label">
+                                Password Baru
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={changePasswordData.password}
+                                onChange={handlePasswordInputChange}
+                                className={`member-profile-edit-input ${changePasswordErrors.password ? 'error' : ''}`}
+                                placeholder="Masukkan password baru (min. 8 karakter)"
+                                disabled={changePasswordLoading}
+                            />
+                            {changePasswordErrors.password && (
+                                <span className="member-form-error">{changePasswordErrors.password}</span>
+                            )}
+                        </div>
+
+                        <div className="member-form-group">
+                            <label htmlFor="password_confirmation" className="member-form-label">
+                                Konfirmasi Password Baru
+                            </label>
+                            <input
+                                type="password"
+                                id="password_confirmation"
+                                name="password_confirmation"
+                                value={changePasswordData.password_confirmation}
+                                onChange={handlePasswordInputChange}
+                                className={`member-profile-edit-input ${changePasswordErrors.password_confirmation ? 'error' : ''}`}
+                                placeholder="Ulangi password baru"
+                                disabled={changePasswordLoading}
+                            />
+                            {changePasswordErrors.password_confirmation && (
+                                <span className="member-form-error">{changePasswordErrors.password_confirmation}</span>
+                            )}
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="member-form-submit"
+                            disabled={changePasswordLoading}
+                        >
+                            {changePasswordLoading ? 'Menyimpan...' : 'Simpan Password Baru'}
+                        </button>
+                    </form>
+                </div>
+            )}
 
             {/* Success Message */}
             {success && (

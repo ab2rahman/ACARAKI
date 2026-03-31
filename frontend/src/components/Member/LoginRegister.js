@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { login, register } from '@/utils/auth';
+import { login, register, forgotPassword } from '@/utils/auth';
 import './member.scss';
 
 const LoginRegister = ({ onLoginSuccess }) => {
@@ -9,6 +9,13 @@ const LoginRegister = ({ onLoginSuccess }) => {
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState('');
+    const [showForgotPassword, setShowForgotPassword] = useState(false);
+
+    // Forgot password state
+    const [forgotEmail, setForgotEmail] = useState('');
+    const [forgotLoading, setForgotLoading] = useState(false);
+    const [forgotSuccess, setForgotSuccess] = useState('');
+    const [forgotErrors, setForgotErrors] = useState({});
     
     // Login form state
     const [loginData, setLoginData] = useState({
@@ -193,6 +200,51 @@ const LoginRegister = ({ onLoginSuccess }) => {
         setSuccess('');
     };
 
+    // Handle forgot password
+    const handleForgotPassword = async (e) => {
+        e.preventDefault();
+        setForgotErrors({});
+        setForgotSuccess('');
+
+        // Validate email
+        if (!forgotEmail) {
+            setForgotErrors({ email: 'Email harus diisi' });
+            return;
+        }
+
+        if (!/\S+@\S+\.\S+/.test(forgotEmail)) {
+            setForgotErrors({ email: 'Email tidak valid' });
+            return;
+        }
+
+        setForgotLoading(true);
+
+        try {
+            const result = await forgotPassword(forgotEmail);
+
+            if (result.success) {
+                setForgotSuccess('Link reset password telah dikirim ke email Anda.');
+                setForgotEmail('');
+            } else {
+                setForgotErrors({ general: result.error });
+                if (result.errors) {
+                    setForgotErrors(result.errors);
+                }
+            }
+        } catch (error) {
+            setForgotErrors({ general: 'Terjadi kesalahan. Silakan coba lagi.' });
+        } finally {
+            setForgotLoading(false);
+        }
+    };
+
+    const closeForgotPassword = () => {
+        setShowForgotPassword(false);
+        setForgotEmail('');
+        setForgotErrors({});
+        setForgotSuccess('');
+    };
+
     return (
         <div className="member-auth-container">
             <div className="member-auth-card">
@@ -289,6 +341,17 @@ const LoginRegister = ({ onLoginSuccess }) => {
                         >
                             {loading ? 'Masuk...' : 'Masuk'}
                         </button>
+
+                        {/* Forgot Password Link */}
+                        <div className="member-forgot-password">
+                            <button
+                                type="button"
+                                className="member-auth-link"
+                                onClick={() => setShowForgotPassword(true)}
+                            >
+                                Lupa Password?
+                            </button>
+                        </div>
                     </form>
                 ) : (
                     /* Registration Form */
@@ -460,6 +523,83 @@ const LoginRegister = ({ onLoginSuccess }) => {
                     </p>
                 </div>
             </div>
+
+            {/* Forgot Password Modal */}
+            {showForgotPassword && (
+                <div className="member-modal-overlay" onClick={closeForgotPassword}>
+                    <div className="member-modal-card" onClick={(e) => e.stopPropagation()}>
+                        <div className="member-modal-header">
+                            <h2 className="member-modal-title">Lupa Password?</h2>
+                            <button
+                                type="button"
+                                className="member-modal-close"
+                                onClick={closeForgotPassword}
+                            >
+                                ×
+                            </button>
+                        </div>
+
+                        <p className="member-modal-subtitle">
+                            Masukkan email Anda dan kami akan mengirimkan link untuk reset password.
+                        </p>
+
+                        {forgotSuccess && (
+                            <div className="member-auth-success">
+                                {forgotSuccess}
+                            </div>
+                        )}
+
+                        {forgotErrors.general && (
+                            <div className="member-auth-error">
+                                {forgotErrors.general}
+                            </div>
+                        )}
+
+                        <form onSubmit={handleForgotPassword} className="member-form">
+                            <div className="member-form-group">
+                                <label htmlFor="forgot_email" className="member-form-label">
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    id="forgot_email"
+                                    value={forgotEmail}
+                                    onChange={(e) => {
+                                        setForgotEmail(e.target.value);
+                                        if (forgotErrors.email) {
+                                            setForgotErrors({});
+                                        }
+                                    }}
+                                    className={`member-form-input ${forgotErrors.email ? 'error' : ''}`}
+                                    placeholder="Masukkan email Anda"
+                                    disabled={forgotLoading}
+                                />
+                                {forgotErrors.email && (
+                                    <span className="member-form-error">{forgotErrors.email}</span>
+                                )}
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="member-form-submit"
+                                disabled={forgotLoading}
+                            >
+                                {forgotLoading ? 'Mengirim...' : 'Kirim Link Reset'}
+                            </button>
+                        </form>
+
+                        <div className="member-modal-footer">
+                            <button
+                                type="button"
+                                className="member-auth-link"
+                                onClick={closeForgotPassword}
+                            >
+                                Kembali ke Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

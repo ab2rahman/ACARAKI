@@ -203,4 +203,52 @@ export const checkInWithQRCode = async (qrcode) => {
     }
 };
 
+export const forgotPassword = async (email) => {
+    try {
+        const response = await api.post('/auth/forgot-password', { email });
+        return {
+            success: true,
+            data: response.data
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error.response?.data?.message || 'Failed to send reset link',
+            errors: error.response?.data?.errors || {}
+        };
+    }
+};
+
+export const resetPassword = async (data) => {
+    try {
+        const response = await api.post('/auth/reset-password', data);
+        return {
+            success: true,
+            data: response.data
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error.response?.data?.message || 'Failed to reset password',
+            errors: error.response?.data?.errors || {}
+        };
+    }
+};
+
+export const changePassword = async (data) => {
+    try {
+        const response = await api.post('/auth/change-password', data);
+        return {
+            success: true,
+            data: response.data
+        };
+    } catch (error) {
+        return {
+            success: false,
+            error: error.response?.data?.message || 'Failed to change password',
+            errors: error.response?.data?.errors || {}
+        };
+    }
+};
+
 export default api;

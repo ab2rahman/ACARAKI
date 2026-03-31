@@ -119,6 +119,55 @@
     @apply text-[#FCA311] hover:text-[#e8920f] font-medium transition-colors duration-300;
 }
 
+.member-forgot-password {
+    @apply text-center mt-4;
+}
+
+// Forgot Password Modal Styles
+.member-modal-overlay {
+    @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+}
+
+.member-modal-card {
+    @apply bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full max-w-md mx-auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.member-modal-header {
+    @apply flex items-center justify-between px-6 pt-6 pb-4;
+}
+
+.member-modal-title {
+    @apply text-xl font-bold text-white;
+    font-family: var(--font-archivo);
+}
+
+.member-modal-close {
+    @apply text-gray-400 hover:text-white transition-colors text-2xl font-light leading-none;
+}
+
+.member-modal-subtitle {
+    @apply text-gray-300 text-sm px-6 pb-4;
+}
+
+.member-form {
+    @apply px-6 pb-4;
+}
+
+.member-modal-footer {
+    @apply px-6 pb-6 text-center;
+}
+
+// Change Password Section
+.member-change-password {
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 mt-6;
+}
+
+.member-change-password-title {
+    @apply text-lg font-bold text-white mb-4 pb-3 border-b border-white/20;
+    font-family: var(--font-archivo);
+}
+
 // Member Details Styles
 .member-details-container {
     @apply max-w-6xl mx-auto;

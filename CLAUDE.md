@@ -290,22 +290,28 @@ NEXT_PUBLIC_API_URL=https://festivaljamunusantara.com/api
 ```
 
 ### Vercel Deployment
+
+**Current Setup**: Dev-only deployment at `https://dev-festivaljamunusantara.vercel.app/`
+
+**Note**: Production alias (`festivaljamunusantara.com`) is intentionally removed after each deployment per user request: *"wait dont deploy to https://festivaljamunusantara.com/ yet, deploy only to https://dev-festivaljamunusantara.vercel.app/ until i tell you to"*
+
 ```bash
 cd frontend
 
-# Deploy to production (main site)
+# Deploy to production (Vercel)
 npx vercel --prod
 
-# Deploy to dev environment only
-# Currently aliased to dev-festivaljamunusantara.vercel.app
-# To add production alias:
-npx vercel alias set festivaljamunusantara.com
-
-# To remove production alias (dev only):
+# After deployment, remove production alias to keep dev-only:
 npx vercel alias rm festivaljamunusantara.com
 
-# List aliases
+# When ready to go live, add production alias:
+npx vercel alias set festivaljamunusantara.com
+
+# List all aliases
 npx vercel alias ls
+
+# Check current alias status
+npx vercel alias inspect festivaljamunusantara.com
 ```
 
 ---
@@ -396,7 +402,7 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
   - Horizontal scroll on mobile
   - Banner with day info and venue
   - Full-row highlighting for special events (Opening, Closing, ISHOMA)
-  - Stage tabs with active state management
+  - Decorative ornaments (corner + floating ornaments) matching HeroOrnaments style
 
 ---
 

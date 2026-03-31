@@ -33,12 +33,15 @@ Route::prefix('auth')->group(function () {
     // Public auth routes
     Route::post('/register', [MemberAuthController::class, 'register']);
     Route::post('/login', [MemberAuthController::class, 'login']);
-    
+    Route::post('/forgot-password', [MemberAuthController::class, 'forgotPassword']);
+    Route::post('/reset-password', [MemberAuthController::class, 'resetPassword']);
+
     // Protected auth routes
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [MemberAuthController::class, 'logout']);
         Route::post('/refresh', [MemberAuthController::class, 'refresh']);
         Route::get('/me', [MemberAuthController::class, 'me']);
+        Route::post('/change-password', [MemberAuthController::class, 'changePassword']);
     });
 });
 
