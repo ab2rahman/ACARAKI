@@ -310,7 +310,7 @@
                             },
                             {
                                 "time": "05.30",
-                                "jamu": "OPENING CEREMONY,\nFLAG OFF GINGER RUN\n5K & FRESH WALK",
+                                "jamu": {"text": "OPENING CEREMONY,\nFLAG OFF GINGER RUN\n5K & FRESH WALK\n\nSENAM SEHAT\n(7.30 - 8.00 WIB)", "rowspan": 2},
                                 "racik": "",
                                 "kids": "",
                                 "carnaval": "",
@@ -318,7 +318,7 @@
                             },
                             {
                                 "time": "07.00",
-                                "jamu": "SENAM SEHAT\n(7.30 - 8.00 WIB)",
+                                "jamu": "__skip__",
                                 "racik": "",
                                 "kids": "",
                                 "carnaval": {"text": "\u2022 Karnaval Permainan Nusantara\n\u2022 Daftar Booth Sponsor\n\u2022 Booth Merchandise\n\u2022 Free Flow Jamu", "rowspan": 15},
@@ -342,7 +342,7 @@
                             },
                             {
                                 "time": "10.00",
-                                "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
+                                "jamu": {"text": "ESTAFET PERMAINAN\nNUSANTARA", "rowspan": 2},
                                 "racik": "TALKSHOW SPESIAL\nHARI JAMU\n10.00 - 10.30\nAWARDING PROGRAM BPOM\n10.30 - 11.00",
                                 "kids": "LOMBA MEWARNAI",
                                 "carnaval": "__skip__",
@@ -350,7 +350,7 @@
                             },
                             {
                                 "time": "11.00",
-                                "jamu": "",
+                                "jamu": "__skip__",
                                 "racik": "ACARAKI JOURNEY\nWORKSHOP",
                                 "kids": "",
                                 "carnaval": "__skip__",

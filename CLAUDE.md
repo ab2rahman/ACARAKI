@@ -390,6 +390,13 @@ docker-compose exec backend-acaraki-be-1 php artisan storage:link
   - Cards: MIXOLOGIST, TEMU LAWAK (coming soon), ESTAFET PERMAINAN NUSANTARA
   - Styling matches Tickets section (font-display, brown #5C4033, gold borders)
   - Centered layout with key visual typography
+- ✅ **Rundown Component Added** (Mar 31):
+  - Multi-stage event schedule table (5 stages: Jamu, Racik, Kids, Carnaval, Bakul)
+  - Sticky time column for easy reference
+  - Horizontal scroll on mobile
+  - Banner with day info and venue
+  - Full-row highlighting for special events (Opening, Closing, ISHOMA)
+  - Stage tabs with active state management
 
 ---
 
@@ -507,7 +514,7 @@ The homepage (`frontend/src/data/pages/home.json`) consists of the following sec
 | 1 | **HeroOrnaments** | HeroOrnaments | Main hero section with decorative SVG frame, countdown timer, and festival info |
 | 2 | **Highlight** | Highlight | "Keseruan Festival" — showcase of festival activities |
 | 3 | **Tickets** | Tickets | "2.5K Fun Walk" — ticket packages (COMEBACK DEALS & WELCOME PACKAGE) |
-| 4 | **Schedules** | Schedules | "Susunan Acara" — event rundown and schedule |
+| 4 | **Rundown** | Rundown | "Susunan Acara Festival" — multi-stage event schedule with 5 stages (Jamu, Racik, Kids, Carnaval, Bakul Karya) |
 | 5 | **Events** | Events | "Kompetisi Jamu Festival 2026" — 3 competition cards (Mixologist, Temu Lawak, Estafet Permainan Nusantara) |
 | 6 | **Galleries** | Galleries | "Galeri Keseruan" — photo galleries with links |
 
@@ -517,11 +524,46 @@ The homepage (`frontend/src/data/pages/home.json`) consists of the following sec
 |-----------|-----------|---------|
 | HeroOrnaments | `components/Home/HeroOrnaments.js` | Decorative hero with SVG frame, ornaments, countdown |
 | CountdownTimer | `components/Home/CountdownTimer.js` | Countdown timer to event date |
-| Highlight | `components/Home/Highlight.js` | Festival activities showcase |
-| Tickets | `components/Home/Tickets.js` | Ticket pricing and packages |
-| Schedules | `components/Home/Schedules.js` | Event schedule/rundown |
-| Events | `components/Home/Events.js` | Competitions and events |
+| Highlight | `components/Home/Highlight.js` | Festival activities showcase with horizontal scroll menu |
+| Tickets | `components/Home/Tickets.js` | Ticket pricing and packages with ornaments |
+| Rundown | `components/Home/Rundown.js` | Multi-stage event schedule table (5 stages: Jamu, Racik, Kids, Carnaval, Bakul) |
+| Events | `components/Home/Events.js` | 3 competition cards with centered layout |
 | Galleries | `components/Home/Galleries.js` | Photo gallery display |
+
+### Rundown Component Details
+
+Located at `frontend/src/components/Home/Rundown.js`
+
+**Features:**
+- Multi-stage schedule table (5 stages: JAMU STAGE, RACIK STAGE, KIDS CORNER, CARNAVAL AREA, BAKUL KARYA)
+- Sticky time column for easy reference
+- Horizontal scroll on mobile with responsive table
+- Alternating row colors (white/beige)
+- Stage tabs with icons for each stage
+- Banner showing current day info
+- Full-row highlighting for special events (Opening, Closing, ISHOMA)
+
+**Data Structure:**
+```json
+{
+  "title": "Susunan Acara Festival",
+  "stages": [
+    { "key": "jamu", "label": "JAMU STAGE" },
+    { "key": "racik", "label": "RACIK STAGE" },
+    { "key": "kids", "label": "KIDS CORNER" },
+    { "key": "carnaval", "label": "CARNAVAL AREA" },
+    { "key": "bakul", "label": "BAKUL KARYA" }
+  ],
+  "days": [
+    {
+      "subtitle": "Hari Pertama, Sabtu 6 Juni 2026",
+      "banner": { "text": "...", "time": "...", "venue": "..." },
+      "headerTitle": "PERJAMUAN NUSANTARA",
+      "schedule": [...]
+    }
+  ]
+}
+```
 
 ---
 
