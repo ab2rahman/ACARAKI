@@ -55,6 +55,40 @@ const Rundown = ({ data }) => {
                 />
             </div>
 
+            {/* Floating Ornaments - positioned around the table area */}
+            {/* Left side ornaments */}
+            <div className="absolute top-[20%] left-[2%] w-16 h-16 md:w-24 md:h-24 pointer-events-none opacity-90 animate-float z-10" style={{ animationDelay: '0.5s' }}>
+                <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+            <div className="absolute top-[40%] left-[4%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-85 scale-x-[-1] animate-float z-10" style={{ animationDelay: '1.5s' }}>
+                <Image src="/imgs/Ornaments-05.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+            <div className="absolute top-[60%] left-[3%] w-16 h-16 md:w-24 md:h-24 pointer-events-none opacity-100 animate-float z-10" style={{ animationDelay: '2.5s' }}>
+                <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+
+            {/* Right side ornaments */}
+            <div className="absolute top-[25%] right-[3%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-90 scale-x-[-1] animate-float z-10" style={{ animationDelay: '1s' }}>
+                <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+            <div className="absolute top-[45%] right-[5%] w-16 h-16 md:w-24 md:h-24 pointer-events-none opacity-85 animate-float z-10" style={{ animationDelay: '2s' }}>
+                <Image src="/imgs/Ornaments-04.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+            <div className="absolute top-[65%] right-[2%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-95 scale-x-[-1] animate-float z-10" style={{ animationDelay: '3s' }}>
+                <Image src="/imgs/Ornaments-05.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+            <div className="absolute top-[80%] right-[4%] w-24 h-24 md:w-32 md:h-32 pointer-events-none opacity-90 animate-float z-10" style={{ animationDelay: '3.5s' }}>
+                <Image src="/imgs/Ornaments-20.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+
+            {/* Bottom area ornaments */}
+            <div className="absolute bottom-[20%] left-[8%] w-20 h-20 md:w-28 md:h-28 pointer-events-none opacity-85 animate-float z-10" style={{ animationDelay: '4s' }}>
+                <Image src="/imgs/Ornaments-21.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+            <div className="absolute bottom-[30%] right-[10%] w-16 h-16 md:w-24 md:h-24 pointer-events-none opacity-100 scale-x-[-1] animate-float z-10" style={{ animationDelay: '4.5s' }}>
+                <Image src="/imgs/Ornaments-03.png" alt="Ornament" fill className="object-contain animate-pulse-slow" />
+            </div>
+
             <Cloud />
             <div className="container relative z-20">
                 <div className="flex flex-col gap-2 items-center text-center mb-8">

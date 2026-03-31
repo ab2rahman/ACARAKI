@@ -163,141 +163,22 @@
                         },
                         "headerTitle": "PERJAMUAN NUSANTARA",
                         "schedule": [
-                            {
-                                "time": "06.30 - 06.45",
-                                "duration": "15'",
-                                "isFullRow": true,
-                                "fullRowText": "Opening Festival Ceremony"
-                            },
-                            {
-                                "time": "06.45 - 08.00",
-                                "duration": "75'",
-                                "jamu": "Jamu Fit Fest\n(Walk & Run, Yoga,\nZumba, Pound Fit)",
-                                "racik": "Racik Workshop\n(Jamu & Lulur Making)",
-                                "kids": "Kids Corner\nActivities",
-                                "carnaval": "Permainan Tradisional\nNusantara",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "08.00 - 09.00",
-                                "duration": "60'",
-                                "jamu": "Jamu Fit Fest\nCool Down & Hydration",
-                                "racik": "Racik Workshop\nSesi 1",
-                                "kids": "Lomba Mewarnai\nJamu Heritage",
-                                "carnaval": "Permainan\nTradisional",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "09.00 - 10.00",
-                                "duration": "60'",
-                                "jamu": "Talkshow Jamu\n& Kesehatan",
-                                "racik": "Racik Workshop\nSesi 2",
-                                "kids": "Storytelling\nCerita Nusantara",
-                                "carnaval": "Estafet Games\nNusantara",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "10.00 - 10.30",
-                                "duration": "30'",
-                                "jamu": "Parade Jamu\nGendong",
-                                "racik": "Free Flow\nJamu Corner",
-                                "kids": "Craft Workshop\nJamu Kids",
-                                "carnaval": "Carnaval\nPerformance",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "10.30 - 11.00",
-                                "duration": "30'",
-                                "jamu": "Parade Jamu\nGendong",
-                                "racik": "Free Flow\nJamu Corner",
-                                "kids": "Craft Workshop\nJamu Kids",
-                                "carnaval": "Carnaval\nPerformance",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "11.00 - 12.00",
-                                "duration": "60'",
-                                "jamu": "Mixologist\nCompetition\nRound 1",
-                                "racik": "Racik Workshop\nSesi 3",
-                                "kids": "Kids Dance\nCompetition",
-                                "carnaval": "Estafet Games\nFinal",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "12.00 - 12.30",
-                                "duration": "30'",
-                                "isFullRow": true,
-                                "fullRowText": "ISHOMA (Istirahat, Sholat, Makan)"
-                            },
-                            {
-                                "time": "12.30 - 13.00",
-                                "duration": "30'",
-                                "jamu": "Live Music\nAcoustic",
-                                "racik": "Racik Demo\nChef Jamu",
-                                "kids": "Kids Corner\nFree Play",
-                                "carnaval": "Carnaval\nFree Roam",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "13.00 - 14.00",
-                                "duration": "60'",
-                                "jamu": "Mixologist\nCompetition\nRound 2",
-                                "racik": "Racik Workshop\nSesi 4",
-                                "kids": "Kids Talent\nShow",
-                                "carnaval": "Permainan\nTradisional",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "14.00 - 15.00",
-                                "duration": "60'",
-                                "jamu": "Temu Lawak\nCompetition",
-                                "racik": "Racik Workshop\nSesi 5",
-                                "kids": "Puppet Show\nWayang Jamu",
-                                "carnaval": "Carnaval\nParade",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "15.00 - 16.00",
-                                "duration": "60'",
-                                "jamu": "Temu Lawak\nFinal",
-                                "racik": "Free Flow\nJamu Corner",
-                                "kids": "Kids Corner\nActivities",
-                                "carnaval": "Permainan\nTradisional",
-                                "bakul": "UMKM &\nBooth Stand"
-                            },
-                            {
-                                "time": "16.00 - 17.00",
-                                "duration": "60'",
-                                "jamu": "Winner Compilation\nShow & Doorprize",
-                                "racik": "Free Flow\nJamu Corner",
-                                "kids": "Kids Corner\nPrize Giving",
-                                "carnaval": "Carnaval\nClosing",
-                                "bakul": "UMKM &\nBooth Closing"
-                            },
-                            {
-                                "time": "17.00 - 18.00",
-                                "duration": "60'",
-                                "jamu": "Fashion Runaway\nJamu Heritage",
-                                "racik": "—",
-                                "kids": "—",
-                                "carnaval": "—",
-                                "bakul": "—"
-                            },
-                            {
-                                "time": "18.00 - 19.00",
-                                "duration": "60'",
-                                "jamu": "Sorak Serai\nLive Performance",
-                                "racik": "—",
-                                "kids": "—",
-                                "carnaval": "—",
-                                "bakul": "—"
-                            },
-                            {
-                                "time": "19.00 - 21.00",
-                                "duration": "120'",
-                                "isFullRow": true,
-                                "fullRowText": "Closing Ceremony & After Party"
-                            }
+                            { "time": "06.30", "duration": "30'", "jamu": {"text": "OPEN GATE", "colspan": 5}, "racik": "__skip__", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "07.00", "duration": "30'", "jamu": "YOGA FIT", "racik": "", "kids": {"text": "MORNING PLAYGROUND", "rowspan": 3}, "carnaval": {"text": "\u2022 KARNAVAL PERMAINAN NUSANTARA\n\u2022 DAFTAR BOOTH SPONSOR\n\u2022 BOOTH MERCHANDISE\n\u2022 FREE FLOW JAMU", "rowspan": 16}, "bakul": {"text": "\u2022 DAFTAR BOOTH F&B\n\u2022 DAFTAR BOOTH EXPO\n\u2022 FREE FLOW JAMU", "rowspan": 16} },
+                            { "time": "08.00", "duration": "30'", "jamu": "", "racik": "ZUMBA SESH", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "09.00", "duration": "30'", "jamu": "", "racik": "", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "10.00", "duration": "60'", "jamu": {"text": "ESTAFET PERMAINAN NUSANTARA", "rowspan": 2}, "racik": {"text": "ACARAKI JOURNEY WORKSHOP", "rowspan": 2}, "kids": {"text": "LOMBA MEWARNAI", "rowspan": 2}, "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "11.00", "duration": "60'", "jamu": "__skip__", "racik": "__skip__", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "12.00", "duration": "60'", "jamu": {"text": "Break Session", "colspan": 3}, "racik": "__skip__", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "13.00", "duration": "60'", "jamu": {"text": "ESTAFET PERMAINAN NUSANTARA", "rowspan": 2}, "racik": {"text": "KELAS MEMBATIK", "rowspan": 2}, "kids": "", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "14.00", "duration": "60'", "jamu": "__skip__", "racik": "__skip__", "kids": {"text": "AKTIVITAS MERACIK JAMU", "rowspan": 2}, "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "15.00", "duration": "60'", "jamu": "PARADE NUSANTARA:  FASHION CARNIVAL", "racik": {"text": "WORKSHOP KALIGRAFI: AKSARA NUSANTARA", "rowspan": 2}, "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "16.00", "duration": "60'", "jamu": "SORAK SERAI:  IDGITAF", "racik": "__skip__", "kids": {"text": "AFTERNOON PLAYGROUND", "rowspan": 2}, "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "17.00", "duration": "60'", "jamu": "KOMPETISI TEMU LAWAK", "racik": "", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "18.00", "duration": "60'", "jamu": "TEMU LAWAK PERFORMANCE + AWARDING", "racik": "", "kids": "", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "19.00", "duration": "60'", "jamu": "CULTURAL LIVE SHOW: REOG & TARI", "racik": "", "kids": "", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "20.00", "duration": "60'", "jamu": "SORAK SERAI:  JUICY LUCY", "racik": "", "kids": "", "carnaval": "__skip__", "bakul": "__skip__" },
+                            { "time": "21.00", "duration": "", "jamu": {"text": "CLOSING", "colspan": 3}, "racik": "__skip__", "kids": "__skip__", "carnaval": "__skip__", "bakul": "__skip__" }
                         ]
                     },
                     {
