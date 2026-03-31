@@ -304,12 +304,14 @@
                         "subtitle": "Hari Kedua, Minggu 7 Juni 2026",
                         "schedule": [
                             {
-                                "time": "05.00",
+                                "time": "05.00 - 05.30",
+                                "duration": "30'",
                                 "isFullRow": true,
                                 "fullRowText": "OPEN GATE & DROPPING BAG"
                             },
                             {
-                                "time": "05.30",
+                                "time": "05.30 - 07.00",
+                                "duration": "90'",
                                 "jamu": {"text": "OPENING CEREMONY,\nFLAG OFF GINGER RUN\n5K & FRESH WALK\n\nSENAM SEHAT\n(7.30 - 8.00 WIB)", "rowspan": 2},
                                 "racik": "",
                                 "kids": "",
@@ -317,7 +319,8 @@
                                 "bakul": ""
                             },
                             {
-                                "time": "07.00",
+                                "time": "07.00 - 08.00",
+                                "duration": "60'",
                                 "jamu": "__skip__",
                                 "racik": "",
                                 "kids": "",
@@ -325,7 +328,8 @@
                                 "bakul": {"text": "\u2022 Daftar Booth F&B\n\u2022 Daftar Booth Expo\n\u2022 Free Flow Jamu", "rowspan": 15}
                             },
                             {
-                                "time": "08.00",
+                                "time": "08.00 - 09.00",
+                                "duration": "60'",
                                 "jamu": "PARADE JAMU GENDONG\n& DOORPRIZE",
                                 "racik": "",
                                 "kids": {"text": "MORNING\nPLAYGROUND", "rowspan": 2},
@@ -333,7 +337,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "09.00",
+                                "time": "09.00 - 10.00",
+                                "duration": "60'",
                                 "jamu": "LAUNCHING PROGRAM BPOM\n09.00 - 09.15\nAWARDING, GRAND PRIZE &\nSORAK SERAI:\nBERLARI BERDENDANG",
                                 "racik": "",
                                 "kids": "__skip__",
@@ -341,7 +346,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "10.00",
+                                "time": "10.00 - 11.00",
+                                "duration": "60'",
                                 "jamu": {"text": "ESTAFET PERMAINAN\nNUSANTARA", "rowspan": 2},
                                 "racik": "TALKSHOW SPESIAL\nHARI JAMU\n10.00 - 10.30\nAWARDING PROGRAM BPOM\n10.30 - 11.00",
                                 "kids": "LOMBA MEWARNAI",
@@ -349,7 +355,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "11.00",
+                                "time": "11.00 - 12.00",
+                                "duration": "60'",
                                 "jamu": "__skip__",
                                 "racik": "ACARAKI JOURNEY\nWORKSHOP",
                                 "kids": "",
@@ -357,7 +364,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "12.00",
+                                "time": "12.00 - 13.00",
+                                "duration": "60'",
                                 "jamu": {"text": "BREAK SESSION", "colspan": 3},
                                 "racik": "__skip__",
                                 "kids": "__skip__",
@@ -365,7 +373,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "13.00",
+                                "time": "13.00 - 14.00",
+                                "duration": "60'",
                                 "jamu": "KOMPETISI MIXOLOGIST\nSemi Profesional",
                                 "racik": "ACARAKI JOURNEY\nWORKSHOP",
                                 "kids": "",
@@ -373,7 +382,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "14.00",
+                                "time": "14.00 - 15.00",
+                                "duration": "60'",
                                 "jamu": "KOMPETISI MIXOLOGIST\nProfesional",
                                 "racik": "KELAS DIY ART\nLukis & Warnai Bajumu!",
                                 "kids": {"text": "AKTIVITAS MERACIK\nJAMU", "rowspan": 2},
@@ -381,7 +391,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "15.00",
+                                "time": "15.00 - 16.00",
+                                "duration": "60'",
                                 "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
                                 "racik": {"text": "LIVE COMPETITION\nKALIGRAFI:\nAKSARA NUSANTARA", "rowspan": 2},
                                 "kids": "__skip__",
@@ -389,7 +400,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "16.00",
+                                "time": "16.00 - 17.00",
+                                "duration": "60'",
                                 "jamu": "SORAK SERAI:\nNADIN AMIZAH",
                                 "racik": "__skip__",
                                 "kids": {"text": "AFTERNOON\nPLAYGROUND", "rowspan": 2},
@@ -397,7 +409,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "17.00",
+                                "time": "17.00 - 18.00",
+                                "duration": "60'",
                                 "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
                                 "racik": "",
                                 "kids": "__skip__",
@@ -405,7 +418,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "18.00",
+                                "time": "18.00 - 19.00",
+                                "duration": "60'",
                                 "jamu": "CULTURAL LIVE SHOW:\nTARI KECAK",
                                 "racik": "",
                                 "kids": "",
@@ -413,7 +427,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "19.00",
+                                "time": "19.00 - 20.00",
+                                "duration": "60'",
                                 "jamu": {"text": "SORAK SERAI:\nYURA YUNITA", "rowspan": 2},
                                 "racik": "",
                                 "kids": "",
@@ -421,7 +436,8 @@
                                 "bakul": "__skip__"
                             },
                             {
-                                "time": "20.00",
+                                "time": "20.00 - 21.00",
+                                "duration": "60'",
                                 "jamu": "__skip__",
                                 "racik": "",
                                 "kids": "",
@@ -430,6 +446,7 @@
                             },
                             {
                                 "time": "21.00",
+                                "duration": "",
                                 "jamu": {"text": "CLOSING", "colspan": 3},
                                 "racik": "__skip__",
                                 "kids": "__skip__",
