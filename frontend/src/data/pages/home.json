@@ -376,22 +376,22 @@
                                 "time": "14.00",
                                 "jamu": "KOMPETISI MIXOLOGIST\nProfesional",
                                 "racik": "KELAS DIY ART\nLukis & Warnai Bajumu!",
-                                "kids": "AKTIVITAS MERACIK\nJAMU",
+                                "kids": {"text": "AKTIVITAS MERACIK\nJAMU", "rowspan": 2},
                                 "carnaval": "__skip__",
                                 "bakul": "__skip__"
                             },
                             {
                                 "time": "15.00",
                                 "jamu": "ESTAFET PERMAINAN\nNUSANTARA",
-                                "racik": "LIVE COMPETITION\nKALIGRAFI:\nAKSARA NUSANTARA",
-                                "kids": "",
+                                "racik": {"text": "LIVE COMPETITION\nKALIGRAFI:\nAKSARA NUSANTARA", "rowspan": 2},
+                                "kids": "__skip__",
                                 "carnaval": "__skip__",
                                 "bakul": "__skip__"
                             },
                             {
                                 "time": "16.00",
                                 "jamu": "SORAK SERAI:\nNADIN AMIZAH",
-                                "racik": "",
+                                "racik": "__skip__",
                                 "kids": {"text": "AFTERNOON\nPLAYGROUND", "rowspan": 2},
                                 "carnaval": "__skip__",
                                 "bakul": "__skip__"
