@@ -1,5 +1,6 @@
 import Background from "@/components/Background";
 import Cloud from '../Cloud';
+import Image from 'next/image';
 
 const Rundown = ({ data }) => {
     const { title, stages } = data;
@@ -13,9 +14,49 @@ const Rundown = ({ data }) => {
     }];
 
     return (
-        <section id="rundown" className="rundown-section relative">
+        <section id="rundown" className="rundown-section relative overflow-hidden">
+            {/* Top Left Ornament - Mirrored */}
+            <div className="absolute -top-16 left-0 w-48 h-48 md:w-64 md:h-64 pointer-events-none opacity-100 scale-x-[-1] z-10">
+                <Image
+                    src="/imgs/Ornaments-17.png"
+                    alt="Top Left Ornament"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* Top Right Ornament */}
+            <div className="absolute -top-20 right-0 w-64 h-64 md:w-80 md:h-80 pointer-events-none opacity-100 z-10">
+                <Image
+                    src="/imgs/Ornaments-17.png"
+                    alt="Top Right Ornament"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* Bottom Left Ornament - Extended */}
+            <div className="absolute bottom-0 -left-20 w-96 h-96 md:-left-32 md:w-[500px] md:h-[500px] pointer-events-none opacity-100 z-10">
+                <Image
+                    src="/imgs/Ornaments-19.png"
+                    alt="Bottom Left Ornament"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
+            {/* Bottom Right Ornament - Mirrored Extended */}
+            <div className="absolute bottom-0 -right-16 w-80 h-80 md:-right-24 md:w-96 md:h-96 pointer-events-none opacity-100 scale-x-[-1] z-10">
+                <Image
+                    src="/imgs/Ornaments-19.png"
+                    alt="Bottom Right Ornament"
+                    fill
+                    className="object-contain"
+                />
+            </div>
+
             <Cloud />
-            <div className="container">
+            <div className="container relative z-20">
                 <div className="flex flex-col gap-2 items-center text-center mb-8">
                     <h2 className="font-display">{title}</h2>
                 </div>
